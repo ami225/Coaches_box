@@ -1,4 +1,4 @@
-class Coach::PostsController < ApplicationController
+class Coaches::PostsController < ApplicationController
     
     def new
     end
