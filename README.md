@@ -16,26 +16,16 @@ Coacher's Box(コーチャーズボックス）
 
 ### ターゲットユーザ
 
-スポーツをする子供から大人まで
+*スポーツをする大学生から大人まで
+*もうすでに引退しているが、スポーツをしている人たちを応援したい社会人
 
 ### 主な利用シーン
-
-スポーツでうまくなりたい時にアドバイスが欲しい時
+*スポーツする人たちを応援したい時
+*スポーツで上手くなりたい時
 
 ## 設計書
 
-ワイヤーフレーム
-https://xd.adobe.com/view/d6915a77-fc16-4beb-bb5f-676f004a7fca-83c2/
-ER 図
-https://drive.google.com/file/d/1tEvUHUM9Q3RbYT81a87t3nv0IKOP29Be/view?usp=sharing
-UIFLOW
-https://drive.google.com/file/d/1tEvUHUM9Q3RbYT81a87t3nv0IKOP29Be/view?usp=sharing
-テーブル定義書
-https://docs.google.com/spreadsheets/d/1TXc90lW-__R1Knv3PwSi9Or9Bj1BX359Yqjo98yEagw/edit?usp=sharing
-アプリケーション設計書
-https://docs.google.com/spreadsheets/d/1Gp6DOVtjzIUcE37EyyizYufuwO0PKHXil4cgKU7m68o/edit?usp=sharing
-
-## チャレンジ要素一覧
+## 機能一覧
 
 https://docs.google.com/spreadsheets/d/1lHKW2PJlggR11rbeiivD8CJez-Ii5OhgRRPxtJtW1QE/edit?usp=sharing
 
@@ -50,4 +40,4 @@ https://docs.google.com/spreadsheets/d/1lHKW2PJlggR11rbeiivD8CJez-Ii5OhgRRPxtJtW
 ## 使用素材
 
 - O-DAN FREE PHOTO (https://o-dan.net/ja/)
-- 使用しない場合は、使用素材の項目を README から削除してください。
+
