@@ -1,0 +1,217 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+/*=====================================
+ Reset CSS
+=====================================*/
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
+ }
+/*=====================================
+ 共通 CSS
+=====================================*/
+
+body{
+  min-height: 100vh;
+}
+
+main{
+  background-color: #dddddd;
+  min-height: 100vh;
+}
+
+/*=====================================
+ devise login signup CSS
+=====================================*/
+.join{
+ text-align: center;
+ padding-top: 50px;
+}
+/*=====================================
+ sidebar CSS
+=====================================*/
+
+.logo{
+  color: white;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+/*一般側,コーチ側名前表示*/
+.name{
+  color: white;
+  font-size: 12px;
+}
+/*テキスト*/
+.nav-item{
+  font-size: 1.235rem;
+  color: #fff;
+  background: linear-gradient(transparent  95%, #fff 70%); /*文字したにアンダーバー*/
+  padding-bottom: 15px;
+  padding-left: 10px;
+  .link{
+    text-decoration: none;/*link_toのリンクの線を消す*/
+  }
+}
+/*=====================================
+ top CSS
+=====================================*/
+.home-content {
+    height: 500px;
+    text-align: center;
+    background-size: cover;
+    background-image: image-url("rugby2.jpg");
+}
+
+.home-content p {
+    padding-top: 20px;
+    font-size: 1.125rem;
+    color: #dddddd;
+    font-family: 'Shippori Mincho', serif;
+}
+/*見出し*/
+.homepage-title {
+    padding-top: 100px;
+    font-size: 5rem;
+    text-transform: uppercase;/*全ての文字を大文字に変換*/
+    color: #dddddd;
+    font-family: 'Shippori Mincho', serif;
+}
+/*about*/
+.about {
+    padding-top: 30px;
+    background-color: #dddddd;
+}
+
+.home-about-text {
+    display: flex;
+    justify-content: flex-start;
+}
+/*コーチ募集欄*/
+.coach-recruit{
+  height: 600px;
+  padding: 30px 0;
+  background-size: cover;
+  background-image: image-url("coach.jpg");
+}
+.coach-recruit-content{
+  padding: 30px;
+  color: white;
+}
+/*見出し*/
+.coach-recruit p {
+  font-family: 'Shippori Mincho', serif;
+}
+.home-coach{
+  font-family: 'Shippori Mincho', serif;
+}
+.coach-title{
+width: 100%;
+text-align: center;
+}
+/*コーチ登録ボタン*/
+.coach-button{
+  width: 200px;
+  margin: 0 auto;
+  font-size: 1.375rem;
+  background: #ed1c24;
+  color: #fff;
+  border-radius: 5px;
+  padding: 18px 32px;
+  
+}
+
+/*=====================================
+ user&coach/edit  CSS
+=====================================*/
+.container_profile_edit{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+.profile-edit {
+	position: relative;
+	width: 80%;
+	padding: 40px 3%;
+}
+.profile-edit input[type=text] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px 0;
+	padding: 0.3em;
+	transition: 0.3s;
+	border: 1px solid #3aacad;
+	border-radius: 4px;
+	outline: none;
+}
+
+.profile-edit input[type=text] {
+	padding-left: 40px;
+}
+
+.profile-edit textarea{
+ font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px 0;
+	padding: 0.3em;
+	transition: 0.3s;
+	border: 1px solid #3aacad;
+	border-radius: 4px;
+	outline: none;
+	padding-left: 40px;
+}
+
+/*=====================================
+ coach/post/new CSS
+=====================================*/
+.post-new{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  background-color: #48d1cc;
+  border: 1px solid transparent;
+  border-radius: 35px;
+}
+
+/*=====================================
+ coach/mypage CSS
+=====================================*/
+
+/*=====================================
+ footer CSS
+=====================================*/
+.footer{
+  height: 100px;
+}
