@@ -1,1 +1,41 @@
-<h1>Homes</h1>
+
+  <div class="home-content">
+    <h2 class="homepage-title">What is your dream?</h2>
+    <p>さあ、強くなろう</p>
+  </div>
+  <div class="about">
+    <h3>コーチャーズボックスって何？</h3>
+    <div class="home-about-text">
+      <h5>コーチたちが集まるBox(箱)です。<br>
+      わからないこと、聞いてみたいことなどが聞けます。<br>
+      コーチの投稿やアドバイスを活かして練習しよう！
+      </h5>
+      <a class="chat-logo">
+        <%= image_tag 'chat.png', :size =>'250x250' %>
+      </a>
+    </div>
+  </div>
+  <div class="home-start">
+    <h5>
+    新規登録をすれば<br>
+    コーチたちに質問することができます。<br>
+    <%= link_to "登録する", new_user_registration_path %>
+    </h5>
+  </div>
+  <div class="coach-recruit">
+    <div class="coach-recruit-content">
+      <h3 class="home-coach">選手を強くするのは"コーチ"だ。</h3>
+       <p>
+         さあ、あなたも選手を強くしよう。
+      </p>
+    </div>
+    <div class="coach-title">
+      <h2 class="homepage-title">
+      Now recruiting<br>
+      Coach's</h2>
+      <div class="coach-button">
+      <%= link_to "コーチ登録", new_user_registration_path, :style =>"color:white;"%>
+      </div>
+    </div>
+    
+  </div>

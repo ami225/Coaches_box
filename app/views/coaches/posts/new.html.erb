@@ -1,0 +1,13 @@
+<div class="post-new">
+  <%= form_with model: @post, url: coaches_posts_path, local: true do |form| %>
+    <p>title</p><%= form.text_field :title %> <br>
+    <p>body</p><%= form.text_area :body %> <br>
+    <p><%= form.label :category, 'カテゴリ' %>
+    <%= form.collection_select(:category_ids, Category.all, :id, :name) %>
+    </p>
+    <p>post</p><%= form.file_field :post %> <br>
+    <div class="btn">
+    <%= form.submit  class: "button" %>
+    </div>
+  <% end %>
+</div>

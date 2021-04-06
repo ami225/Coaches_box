@@ -1,4 +1,8 @@
 class Users::FavoritesController < ApplicationController
+  
+    def index
+      
+    end
     
     def create
     end

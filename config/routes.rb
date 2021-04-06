@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :coaches do
+    get 'categories/index'
+    get 'categories/edit'
+  end
   namespace :user do
     get 'rooms/show'
   end
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    registrations: 'users/registrations', only: [:create]
+    registrations: 'users/registrations'
   }
   
   #Coach側ルーティング
@@ -30,13 +34,15 @@ Rails.application.routes.draw do
     get   'coaches/edit'    => 'coaches#edit'
     patch 'coaches'         => 'coaches#update'
     resources :posts, only: [:new, :create, :edit, :update, :index, :show, :destroy] 
+    
     resources :messages, only: [:create] #DM機能
     resources :rooms, only: [:create,:show]#DM機能
+    
   end
   devise_for :coaches, controllers: {
     sessions:  'coaches/sessions',
     passwords: 'coaches/passwords',
-    registrations: 'coaches/registrations', only: [:create]
+    registrations: 'coaches/registrations'
   }
 
 end

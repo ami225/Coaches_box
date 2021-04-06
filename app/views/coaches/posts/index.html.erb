@@ -1,0 +1,24 @@
+<div class="mx-auto col-md-8 mt-4">
+  <div class="container">
+    <div class="row">
+      <% @posts.each do |post| %>
+      <div class="col-md-5">
+        <div class="card shadow">
+          <% link_to coaches_post_path(post), class: "no-underline" %>
+          <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
+          <div class="card-body">
+            <h5>タイトル</h5>
+            <p><%= post.title %></p>
+            <p class="card-text">
+              <h5>説明</h5>
+            <p><%= post.body %></p>
+            <h5>カテゴリー</h5>
+            <% post.categories.each do |category| %>
+            <%= category.name %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module Coaches::CategoriesHelper
+end

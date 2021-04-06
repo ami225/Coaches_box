@@ -10,3 +10,7 @@ Coach.create!(
     email: "coach@coach",
     password: "111111"
     )
+    
+Category.create!(
+    name: "ラグビー",
+    )

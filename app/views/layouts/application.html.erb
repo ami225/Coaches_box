@@ -1,15 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CoachBox</title>
+    <title>Coacher's Box</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+　　<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+ 
+  <!--- header --->
+  
   <body>
-    <%= yield %>
+    
+      <div class="row no-gutters" >
+        <div class="col-3" style="background-color: #cc0000; min-height">
+        <a class="logo" href="/">
+          <%= image_tag 'logo.png', :size =>'70x70'%>Coacher's Box
+        </a>
+        <nav>
+          <ul class="gnavi">
+             <!-- 一般側ログイン -->
+                <% if user_signed_in? %>
+                    <li class="name">
+                      ようこそ、<%= current_user.name %>さん！
+                    </li>
+                    <li class="nav-item">
+                     <%= link_to "My Page", users_my_page_path, class: "link", :style => "color:white;" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "コーチの投稿一覧", posts_path, class: "link", :style => "color:white;" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link", :style => "color:white;"%></a>
+                    </li>
+                <!-- コーチ側ログイン -->
+                <% elsif coach_signed_in? %>
+                    <li class="name">
+                      お疲れ様です！<%= current_coach.name %>コーチ！
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "My Page", coaches_coaches_my_page_path, class: "link", :style => "color:white;" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "質問履歴一覧", coaches_coaches_my_page_path, class: "link", :style => "color:white;" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "アドバイス投稿する", new_coaches_post_path, class: "link", :style => "color:white;" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "コーチたちの投稿", coaches_posts_path, class: "link", :style => "color:white;" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "ログアウト", destroy_coach_session_path, method: :delete, class: "link", :style => "color:white;" %>
+                    </li>
+                <!-- ログイン前 -->
+                <% else %>
+                  <li class="nav-item">
+                        <a><%= link_to "SIGN UP", new_user_registration_path, class: "link", :style => "color:white;" %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a><%= link_to "COACH SIGN UP", new_coach_registration_path, class: "link", :style => "color:white;" %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a><%= link_to "LOG IN", new_user_session_path, class: "link", :style => "color:white;" %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a><%= link_to "COACH LOG IN", new_coach_session_path, class: "link", :style => "color:white;" %></a>
+                    </li>
+                <% end %>
+          </ul>
+        </nav>
+        <div class="row mx-auto">
+         <footer>
+            @wabe.inc
+          </footer>
+        </div>
+      </div>
+      <div class="col-9">
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

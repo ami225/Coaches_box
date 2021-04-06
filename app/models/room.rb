@@ -1,4 +1,4 @@
 class Room < ApplicationRecord
-  belongs_to :user
-  belongs_to :coach
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 end
