@@ -5,10 +5,10 @@
         <% if @post.post.attached? %> <!-- @postがpost(video)を持っているか確かめる -->
         <div class="card-body">
           <h6 class="card-title">
-              <h5>タイトル</h5>
+          <h5>練習メニュー名</h5>
           <p><%= @post.title %></p>
           <p class="card-text">
-            <h5>説明</h5>
+          <h5>練習の意義</h5>
           <p><%= @post.body %></p>
           <h5>カテゴリー</h5>
           <% @post.categories.each do |category| %>
@@ -17,6 +17,7 @@
           </p>
           <%= video_tag rails_blob_path(@post.post), size: "500x300",autoplay: true, muted: true %>
         <% end %>
+        <%= link_to "Coach Profile", coach_path %>
       </div>
     </div>
 </div>

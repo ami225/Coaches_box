@@ -1,7 +1,7 @@
 <div class="join">
   <h2>コーチログイン</h2>
   
-  <%= form_with model: @coach, url: coach_session_path, local: true do |f| %>
+  <%= form_with model: @coach, url: coach_session_path, method: :post, local: true do |f| %>
   
   　<div class="field">
       <%= f.label :email %><br />
