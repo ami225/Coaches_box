@@ -1,0 +1,16 @@
+<!--Roomがあるか条件分岐-->
+<!--@isRoomがtrueの時-->
+<% if @isRoom == true %>
+  <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+<!--@isRoomがfalseの時-->
+<% else %>
+<!--roomテーブルとentryテーブルに保存-->
+  <!--roomsコントローラ(create)にform_forを使って、パラメータを送る-->
+  <%= form_for @room do |f| %>
+    <%= fields_for @entry do |e| %>
+      <%= e.hidden_field :coach_id, value: @coach.id %>
+    <% end %>
+    <%= f.submit "アドバイスを聞く", class:"btn btn-primary btn-lg user-show-chat"%>
+  <% end %>
+<% end %>
+

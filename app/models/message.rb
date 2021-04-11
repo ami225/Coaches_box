@@ -1,6 +1,4 @@
 class Message < ApplicationRecord
-  validates :content, presence: true
-  belongs_to :user
+  #messageコントローラーにコメントアウトしているものを記述できれば、blongs_to :userとcoachアソシエーション
   belongs_to :room
-  belongs_to :coach
 end

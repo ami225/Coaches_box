@@ -58,17 +58,17 @@
                     </li>
                 <!-- ログイン前 -->
                 <% else %>
-                  <li class="nav-item">
-                        <a><%= link_to "SIGN UP", new_user_registration_path, class: "link", :style => "color:white;" %></a>
+                    <li class="nav-item">
+                        <%= link_to "SIGN UP", new_user_registration_path, class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
-                        <a><%= link_to "COACH SIGN UP", new_coach_registration_path, class: "link", :style => "color:white;" %></a>
+                        <%= link_to "COACH SIGN UP", new_coach_registration_path, class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
-                        <a><%= link_to "LOG IN", new_user_session_path, class: "link", :style => "color:white;" %></a>
+                      <%= link_to "LOG IN", new_user_session_path, class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
-                        <a><%= link_to "COACH LOG IN", new_coach_session_path, class: "link", :style => "color:white;" %></a>
+                      <%= link_to "COACH LOG IN", new_coach_session_path, class: "link", :style => "color:white;" %>
                     </li>
                 <% end %>
           </ul>
