@@ -1,0 +1,4 @@
+<% @favorites.each do |coach| %>
+  <% coach = Coach.find_by(id: favorite.coach_id) %>
+  <%= coach.title %>
+<% end %>

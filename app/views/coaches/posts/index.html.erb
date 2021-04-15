@@ -1,22 +1,23 @@
-<div class="mx-auto col-md-8 pt-4">
-  <div class="container">
-    <div class="row">
+<div class="container">
+    <div class="card-deck pt-5">
       <% @posts.each do |post| %>
-      <div class="col-md-5">
-        <div class="card shadow">
-          <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
-          <div class="card-body">
-            <h5>練習メニュー名</h5>
-            <p><%= post.title %></p>
-            <p class="card-text">
-            <h5>カテゴリー</h5>
-            <% post.categories.each do |category| %>
-            <%= category.name %><br>
-            <% end %>
-            <%= link_to "READ MORE", coaches_post_path(post.id) %>
+        <div class="col-md-4 mb-3 ">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="video-post mx-auto pt-2" style="width: 200px;">
+               <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
+              </div>
+              <h6><%= post.title %></h6>
+              <%= link_to "READ MORE", coaches_post_path(post.id) %>
+            </div>
           </div>
         </div>
+      <% end %>
     </div>
-    <% end %>
+  </div>
+  <div class="row pb-4">
+   <div class="mx-auto"><%= paginate @posts %></div>
   </div>
 </div>
+
+    

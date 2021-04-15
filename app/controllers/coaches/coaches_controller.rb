@@ -1,31 +1,35 @@
 class Coaches::CoachesController < ApplicationController
     
     def show
-      @coach = current_coach
+       #コーチがログイン
+      if coach_signed_in?
+       @coach = Coach.find(params[:id])
+       #コーチに紐づいた投稿
+       @posts = @coach.posts
+       rooms = current_coach.rooms
+       #自分が入ってるroomの相手のidを格納する
+       @user_ids = []
+       rooms.each do |r|
+       @user_ids << r.user_id
+      end
+      #ユーザーがログイン
+      elsif user_signed_in?
+       @coach = Coach.find(params[:id])
+       @posts = @coach.posts
+       rooms = current_user.rooms
+       #自分が入ってるroomの相手のidを格納する
+       @coach_ids = []
+       rooms.each do |r|
+       @coach_ids << r.coach_id
+      end
+      end
+    end
+      
+    def index
+     @user = User.find_by(id: params[:id])
+     @favorites = Favorite.where(user_id: @userid)
     end
     
-    def chat
-      @coach = Coach.find(params[:id])
-      #Entryテーブルにログインユーザーとアドバイスを受けたいコーチの情報を入れる
-      @currentUserEntry = Entry.where(user_id: current_user.id)#ログインしているユーザーを探す
-      @coachEntry = Entry.where(user_id: @coach.id)#チャット行いたいコーチを探す
-      #すでにroomが作成されている同士かどうか条件分岐
-      @currentUserEntry.each do |cu|
-        @coachEntry.each do |u|
-          #room_idが共通しているユーザーとコーチにroom_idの変数を入れる。
-          if cu.room_id == u.room_id then
-            #@isRoom = falseの時、つまりRoomを作成する時に記述する用
-            @isRoom = true
-            @roomId = cu.room_id
-          end
-        end
-      end
-      if @isRoom
-      else
-        @room = Room.new
-        @entry = Entry.new
-      end
-    end
     
     def edit
       @coach = current_coach
@@ -33,8 +37,10 @@ class Coaches::CoachesController < ApplicationController
     
     def update
       @coach = current_coach
+      tag_list = params[:coach][:tag_ids].split(",")
      if @coach.update(coach_params)
-       redirect_to coaches_coaches_my_page_path
+       @coach.save_tags(tag_list)
+       redirect_to coaches_coach_path
      else
        render :edit
      end
@@ -45,4 +51,8 @@ class Coaches::CoachesController < ApplicationController
     def coach_params
       params.require(:coach).permit(:name, :introduction, :profile_image)
     end
+    
+     def tag_params
+       params.require(:coach).permit(tag_ids[], :coach)
+     end
 end

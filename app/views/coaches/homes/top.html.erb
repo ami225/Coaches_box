@@ -1,25 +1,2 @@
-<div class="mx-auto col-md-8 pt-4"> 
- <div class="container">
-    <div class="row">
-      <% @posts.each do |post| %>
-      <div class="col-5">
-        <div class="card shadow">
-          <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
-          <div class="card-body">
-            <h5>練習メニュー名</h5>
-            <p><%= post.title %></p>
-            <p class="card-text">
-              <h5>メニューの意味</h5>
-            <p><%= post.body %></p>
-            <h5>カテゴリー</h5>
-            <% post.categories.each do |category| %>
-            <%= category.name %>
-            <% end %>
-            </p>
-          </div>
-            <% end %>
-        </div>
-    </div>
-  </div>
-</div>
+<h1>お疲れ様です。<%= current_coach.name %>コーチ！</h1>
 

@@ -1,0 +1,22 @@
+<div class="container pt-5">
+  <div class="post-edit mx-auto" style="width: 600px;">
+   <div class="pst"><p>EDITING POST</p></div>
+   <div class="row">
+     <%= form_with model: @post, url: coaches_post_path, local: true do |form| %>
+      <div class="col-md-10">
+      <p>タイトル</p><%= form.text_field :title, size: "70" %> <br>
+      </div>
+      <div class="col-md-10">
+      <p>説明</p><%= form.text_area :body, size: "70x10" %> <br>
+      </div>
+      <div class="col-md-10">
+      <p>投稿動画</p><%= form.file_field :post %> <br>
+      </div>
+      <br>
+      <div class="col-md-10">
+      <%= form.submit '変更を保存する', class:"btn btn-outline-primary" %>
+      </div>
+     <% end %>
+   </div>
+   </div>
+</div>
