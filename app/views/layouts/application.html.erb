@@ -31,7 +31,7 @@
                      <%= link_to "My Page", users_my_page_path, class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "コーチの投稿一覧", posts_path, class: "link", :style => "color:white;" %>
+                      <%= link_to "コーチの投稿一覧", coaches_posts_path, class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
                       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link", :style => "color:white;"%></a>
@@ -42,10 +42,10 @@
                       お疲れ様です！<%= current_coach.name %>コーチ！
                     </li>
                     <li class="nav-item">
-                      <%= link_to "My Page", coaches_coaches_my_page_path, class: "link", :style => "color:white;" %>
+                      <%= link_to "My Page", coaches_coach_path(current_coach.id), class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "質問履歴一覧", coaches_coaches_my_page_path, class: "link", :style => "color:white;" %>
+                      <%= link_to "質問履歴一覧", rooms_path, class: "link", :style => "color:white;" %>
                     </li>
                     <li class="nav-item">
                       <%= link_to "アドバイス投稿する", new_coaches_post_path, class: "link", :style => "color:white;" %>

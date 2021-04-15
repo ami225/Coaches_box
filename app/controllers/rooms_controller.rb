@@ -1,24 +1,64 @@
 class RoomsController < ApplicationController
   
   def show
-    @room = Room.find(params[:id])
-    #entryテーブルからログインしているユーザーと紐づいているroom_idを探す
-    if UserEntry.where(user_id: current_user.id,room_id: @room.id).present?
-      @messages = @room.messages
-      @message = Message.new
-      @user_entries = @room.user_entries
-      @coach_entries = @room.coach_entries
+    @room = Room.find(params[:id]) #ルーム情報の取得
+    @coach = @room.coach
+    @user = @room.user
+    @message = Message.new #新規メッセージ投稿
+    @messages = @room.messages #このルームのメッセージを全て取得
+    #ユーザーがログインしている時
+    if user_signed_in?
+      if @room.user.id == current_user.id
+        @coach = @room.coach
+      else
+        redirect_to coaches_coach_path(@coach.id)
+      end
+    #コーチがログインしている時
+    elsif coach_signed_in?
+      if @room.coach.id == current_coach.id
+        @user = @room.user
+      else
+        redirect_to coaches_coach_path(current_coach.id)
+      end
     else
-      redirect_back(fallback_location: root_path)
+      redirect_to coaches_coach_path(current_coach.id)
     end
   end
-  #chat.html.erbで送られてきたパラメータを受け取る
+
   def create
-    @room = Room.create
-    @user_entry = UserEntry.create(room_id: @room.id, user_id: current_user.id) 
-    @coach_entry = CoachEntry.create(params.require(:entry).permit(:coach_id, :room_id).merge(room_id: @room.id))
-    @entry = Entry.create(room_id: @room.id, user_id: @user_entry.user_id, coach_id: @coach_entry.coach_id)
-    redirect_to "/rooms/#{@room.id}"
+    #userがログインしてたらuser_idを, coachがログインしてたらcoach_idを@roomにいれる
+    if user_signed_in?
+      @room = Room.new(room_coach_params)
+      #ユーザーidを入れる
+      @room.user_id = current_user.id
+    elsif coach_signed_in?
+      @room = Room.new(room_user_params)
+      #コーチidを入れる
+      @room.coach_id = current_coach.id
+    else
+      redirect_to coaches_coach_path(params[:room][:@coach_id])
+    end
+    
+    if @room.save
+      # redirect_to :action => "show", :coach_id => params[:room][:@coach_id], :id => @room.id
+      redirect_to room_path(@room.id)
+    else
+      redirect_to coaches_coach_path(params[:room][:@coach_id])
+    end
   end
   
+  def index
+    @rooms = Room.all
+  end
+      
+    
+  
+  private
+  def room_coach_params
+    params.require(:room).permit(:coach_id)
+  end
+
+  def room_user_params
+    params.require(:room).permit(:user_id)
+  end
 end

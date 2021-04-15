@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_111450) do
+ActiveRecord::Schema.define(version: 2021_04_14_060102) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -30,23 +30,6 @@ ActiveRecord::Schema.define(version: 2021_04_10_111450) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.integer "post_id"
-    t.string "name", null: false
-    t.string "ancestry"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
-    t.index ["name"], name: "index_categories_on_name"
-  end
-
-  create_table "coach_entries", force: :cascade do |t|
-    t.integer "coach_id"
-    t.integer "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "coach_messages", force: :cascade do |t|
@@ -71,19 +54,11 @@ ActiveRecord::Schema.define(version: 2021_04_10_111450) do
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
   end
 
-  create_table "entries", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
-    t.integer "coach_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "coach_id"
-    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -91,23 +66,15 @@ ActiveRecord::Schema.define(version: 2021_04_10_111450) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "post_category_relations", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "is_user"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "category_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "coach_id"
-    t.integer "favorite_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -117,9 +84,16 @@ ActiveRecord::Schema.define(version: 2021_04_10_111450) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_entries", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+  create_table "tag_relationships", force: :cascade do |t|
+    t.integer "coach_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coach_id", "tag_id"], name: "index_tag_relationships_on_coach_id_and_tag_id", unique: true
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

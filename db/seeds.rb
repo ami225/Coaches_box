@@ -29,6 +29,13 @@ User.create!(
     password: "nnnnnn",
     profile_image: open("./app/assets/images/r0843.png")
     )
+User.create!(
+    name: "川部里美",
+    introduction: "〇〇大学 卓球部です。",
+    email: "satomi@satomi",
+    password: "ssssss",
+    profile_image: open("./app/assets/images/r0843.png")
+    )
     
 Category.create!(
     name: "ラグビー",

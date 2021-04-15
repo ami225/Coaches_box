@@ -1,14 +1,51 @@
-<h4 class="rooms-title">Chat Room</h4>
-<% @coach_entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-    <a  href="/coaches/<%= e.coach.id %>">
-        <%= e.coach.name %>さん
-    </a>
-  </strong>
+
+<% if user_signed_in? %>
+  <div class="chat-field">
+    <h3><% @user.name %>とのチャットルーム</h3>
+    <% @messages.each do |m| %>
+      <!-- メッセージがUserによるものだったら -->
+      <% if m.is_user %>
+        <!-- メッセージを右に寄せる -->
+        <div class="right-message">
+          <%= m.content %>
+        </div>
+      <!-- メッセージがCoachによるものだったら -->
+      <% else %>
+        <!-- メッセージを左に寄せる -->
+        <div class="left-message">
+          <%= m.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% elsif coach_signed_in?%>
+  <div class="chat-field pt-5">
+    <div class="chat-room-user">
+      <h3><%= @user.name %>とのチャットルーム</h3>
+    </div>
+    <% @messages.each do |m| %>
+      <!-- メッセージがUserによるものだったら -->
+      <% if m.is_user %>
+        <!-- メッセージを左に寄せる -->
+        <div class="left-message">
+          <div class="bms_message_box">
+              <%= m.content %>
+          </div>
+        </div>
+      <!-- メッセージがCoachによるものだったら -->
+      <% else %>
+        <!-- メッセージを右に寄せる -->
+        <div class="right-message">
+          <div class="bms_message_box">
+            <div class="bms_message_content">
+              <%= m.content %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
-<hr>
 <div class="chats">
   <div class="chat" id= "message" >
     <!--messageが入っているかどうか-->

@@ -4,20 +4,21 @@
       <div class="card shadow">
         <% if @post.post.attached? %> <!-- @postがpost(video)を持っているか確かめる -->
         <div class="card-body">
-          <h6 class="card-title">
-          <h5>練習メニュー名</h5>
-          <p><%= @post.title %></p>
+          <div class="card-title ">
+            <h5><%= @post.title %></h5>
+          </div>
           <p class="card-text">
-          <h5>練習の意義</h5>
-          <p><%= @post.body %></p>
-          <h5>カテゴリー</h5>
-          <% @post.categories.each do |category| %>
-          <%= category.name %>
-          <% end %>
+            <h5>説明</h5>
+            <p><%= @post.body %></p>
           </p>
-          <%= video_tag rails_blob_path(@post.post), size: "500x300",autoplay: true, muted: true %>
+          <div class="video-post mx-auto" style="width: 500px;">
+           <%= video_tag rails_blob_path(@post.post), size: "500x300",autoplay: true, muted: true %>
+          </div>
         <% end %>
-        <%= link_to "Coach Profile", coach_path %>
+        <br>
+        <h5>投稿者</h5>
+        <%= @post.coach.name %>
+        <%= link_to "Coach Profile", coaches_coach_path(@post.coach_id) %>を見る
       </div>
     </div>
 </div>

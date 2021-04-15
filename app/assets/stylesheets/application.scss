@@ -184,30 +184,98 @@ text-align: center;
 	outline: none;
 	padding-left: 40px;
 }
-
 /*=====================================
- coach/post/new CSS
+ post関係タイトル  CSS
 =====================================*/
-.post-new{
-  text-align: center;
-  padding-top: 50px;
-}
-
-.button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+.pst{
   width: 200px;
-  height: 60px;
-  background-color: #48d1cc;
-  border: 1px solid transparent;
-  border-radius: 35px;
+  font-size: 30px;
+  padding: 5px;
+  margin: 20px auto;
+  font-weight: bold;
+  color: #6699FF;/*文字色*/
+  background: #dddddd;
+  border: solid 3px #6699FF;/*線*/
+  border-radius: 10px;/*角の丸み*/
+
+}
+.pst p{
+  text-align: center;
+}
+/*=====================================
+ room/show CSS
+=====================================*/
+.chat-room-user{
+  width: 400px;
+  margin: 40px 350px;
+  text-align: center;
+  background: linear-gradient(transparent 70%, #ff99ab 70%);
+}
+/*左側メッセージ表示*/
+.left-message{
+  text-align: left;
+  padding: 5px 200px;
 }
 
-/*=====================================
- coach/mypage CSS
-=====================================*/
+.left-message .bms_message_box{
+  position: relative;
+  display: inline-block;
+  width: 200px; 
+  text-align: center;
+  color:#FFF;
+  padding: 25px;
+  background-color: #ea5550;
+  border-radius: 5px;
+}
+.left-message .bms_message_box:before {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: 1;
+  border-style: solid;
+  border-color: transparent #ea5550;
+  border-width: 10px 10px 10px 0;
+  top: 50%;
+  left: -10px;
+  margin-top: -10px;
+}
+/*右側メッセージ表示*/
+.right-message{
+  text-align: right;
+  padding: 5px 200px;
+  margin-top: 20px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
+  max-width: 100%;/*文字が長くなった時に吹き出しがタイムラインからはみ出さない様にする*/
+  font-size: 16px;
+}
+
+
+.right-message .bms_message_box {
+  position: relative;
+  display: inline-block;
+  width: 200px; 
+  text-align: center;
+  color:#FFF;
+  padding: 25px;
+  background-color: #00afcc;
+  border-radius: 5px;
+}
+.right-message .bms_message_box:before {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: 1;
+  border-style: solid;
+  border-color: transparent #00afcc;
+  border-width: 10px 0 10px 10px;
+  top: 50%;
+  right: -10px;
+  margin-top: -10px;
+}
+/*メッセージ送信フォーム*/
+.send-msg{
+ padding-left: 500px;
+ margin: 20px;
+}
 
 /*=====================================
  footer CSS
