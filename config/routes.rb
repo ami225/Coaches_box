@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'finders/finder'
   namespace :coaches do
     resources :coaches, only: [:show, :edit, :index, :update] do
       resource :favorites, only: [:create, :destroy]
@@ -10,7 +9,6 @@ Rails.application.routes.draw do
   # Coach側ルーティング
   namespace :coaches do
     root to: 'homes#top'
-    # TODO: coarchs/coarchs みたいになってるので後で消す
     resources :posts, only: [:new, :create, :edit, :update, :index, :show, :destroy]
   end
   devise_for :coaches, controllers: {
@@ -23,10 +21,7 @@ Rails.application.routes.draw do
   scope module: :users do
     root to: 'homes#top'
     get   'users/my_page' => 'users#show'
-    get   'users/edit'    => 'users#edit'
-    patch 'users'         => 'users#update'
-    resources :posts,     only: [:index, :show]
-    resources :coaches, only: [:show, :index]
+    resources :users, only: [:edit, :update] 
   end
   devise_for :users, controllers: {
     sessions: 'users/sessions',

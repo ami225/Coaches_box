@@ -9,7 +9,7 @@
           <h3 class="card-title font-weight-bold pb-1"><%= @user.name %></h3>
           <p class="card-text"><%= @user.introduction %></p>
           <span class="button">
-            <%= link_to users_edit_path do %>
+            <%= link_to edit_user_path(@user.id) do %>
               <%= image_tag 'setting.png', :size =>'70x70'%>プロフィールを編集
             <% end %>
           </span>

@@ -13,7 +13,7 @@
   <body>
     <div class="container-fuild">
       <div class="row no-gutters" >
-        <nav class="col-md-3 bg-danger"> 
+        <nav class="col-md-2 bg-danger"> 
           <!-- サイドバーを固定 -->
           <div class="sidebar_fixed">
             <ul class="nav-bar">
@@ -25,69 +25,69 @@
                   <li class="name">
                     ようこそ、<%= current_user.name %>さん！
                   </li>
-                  <li class="nav-item">
-                   <%= link_to "My Page", users_my_page_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                   <%= link_to "My Page", users_my_page_path, class: "link"%>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "コーチの投稿一覧", coaches_posts_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "コーチの投稿一覧", coaches_posts_path, class: "link" %>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "コーチ一覧", coaches_coaches_path, class: "link", :style => "color:white;"%>
+                  <li class="nav-item bg">
+                    <%= link_to "コーチ一覧", coaches_coaches_path, class: "link"%>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "いいねしたコーチ", coaches_coach_favorites_favorites_path(current_user.favorites), class: "link", :style => "color:white;"%>
+                  <li class="nav-item bg">
+                    <%= link_to "いいねしたコーチ", coaches_coach_favorites_favorites_path(current_user.favorites), class: "link"%>
                   </li>
-                  
-                  <li class="nav-item">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link", :style => "color:white;"%>
+                  <li class="nav-item bg">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link"%>
                   </li>
               <!-- コーチ側ログイン -->
               <% elsif coach_signed_in? %>
                   <li class="name">
                     お疲れ様です！<%= current_coach.name %>コーチ！
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "My Page", coaches_coach_path(current_coach.id), class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "My Page", coaches_coach_path(current_coach.id), class: "link" %>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "質問履歴一覧", rooms_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "質問履歴一覧", rooms_path, class: "link" %>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "アドバイス投稿する", new_coaches_post_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "アドバイス投稿する", new_coaches_post_path, class: "link" %>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "コーチ投稿一覧", coaches_posts_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "コーチ投稿一覧", coaches_posts_path, class: "link" %>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "コーチ一覧", coaches_coaches_path, class: "link", :style => "color:white;"%>
+                  <li class="nav-item bg">
+                    <%= link_to "コーチ一覧", coaches_coaches_path, class: "link"%>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "ログアウト", destroy_coach_session_path, method: :delete, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "ログアウト", destroy_coach_session_path, method: :delete, class: "link" %>
                   </li>
               <!-- ログイン前 -->
               <% else %>
-                  <li class="nav-item">
-                      <%= link_to "SIGN UP", new_user_registration_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "SIGN UP", new_user_registration_path, class: "link" %>
+                  </li><br>
+                  <li class="nav-item bg">
+                    <%= link_to "LOG IN", new_user_session_path, class: "link" %>
                   </li>
-                  <li class="nav-item">
-                    <%= link_to "LOG IN", new_user_session_path, class: "link", :style => "color:white;" %>
+                   <li class="nav-item bg">
+                      <%= link_to "COACH SIGN UP", new_coach_registration_path, class: "link" %>
                   </li>
-                   <li class="nav-item">
-                      <%= link_to "COACH SIGN UP", new_coach_registration_path, class: "link", :style => "color:white;" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "COACH LOG IN", new_coach_session_path, class: "link", :style => "color:white;" %>
+                  <li class="nav-item bg">
+                    <%= link_to "COACH LOG IN", new_coach_session_path, class: "link" %>
                   </li>
               <% end %>
             </ul>
           </div>
         </nav>
-        <div class="col-md-9">
+        <div class="col-md-10">
           <main>
             <%= yield %>
           </main>
         </div>
       </div>
     </div>
+</body>
   </body>
 </html>
