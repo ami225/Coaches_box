@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container pt-5">
   <div class="card rounded mb-3  mx-auto">
     <div class="row g-0">
       <div class="col-md-4" style="height: 200px; width: 200px;">
@@ -16,5 +16,19 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+  <div class="user-mypage-content col-6">
+    <% if @user.is_same?(current_user) %>
+    <div class="mypage-text">
+      <%= link_to "いいねしたコーチ一覧へ", coaches_coach_favorites_favorites_path(current_user.favorites), :style => "color:black;" %>
+    </div>
+  </div>
+  <div class="user-mypage-content col-6">
+    <div class="mypage-text">
+      <%= link_to "コーチとのDM", rooms_path, :style => "color:black;"%>
+    </div>
+  </div>
+  <% end %>
   </div>
 </div>

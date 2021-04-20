@@ -1,6 +1,5 @@
 class Coaches::HomesController < ApplicationController
-    
-    def top
-      @posts = Post.all
-    end
+  def top
+    @posts = Post.all
+  end
 end

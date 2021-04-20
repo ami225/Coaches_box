@@ -1,58 +1,72 @@
 class Coaches::CoachesController < ApplicationController
-    
-    def show
-       #コーチがログイン
-      if coach_signed_in?
-       @coach = Coach.find(params[:id])
-       #コーチに紐づいた投稿
-       @posts = @coach.posts
-       rooms = current_coach.rooms
-       #自分が入ってるroomの相手のidを格納する
-       @user_ids = []
-       rooms.each do |r|
-       @user_ids << r.user_id
+  # コーチのみ編集と削除ができる
+  before_action :ensure_correct_user, only:[:edit]
+  def show
+    # コーチがログイン
+    if coach_signed_in?
+      @coach = Coach.find(params[:id])
+      # コーチに紐づいた投稿
+      @posts = @coach.posts
+      rooms = current_coach.rooms
+      # 自分が入ってるroomの相手のidを格納する
+      @user_ids = []
+      rooms.each do |r|
+        @user_ids << r.user_id
       end
-      #ユーザーがログイン
-      elsif user_signed_in?
-       @coach = Coach.find(params[:id])
-       @posts = @coach.posts
-       rooms = current_user.rooms
-       #自分が入ってるroomの相手のidを格納する
-       @coach_ids = []
-       rooms.each do |r|
-       @coach_ids << r.coach_id
+    # ユーザーがログイン
+    elsif user_signed_in?
+      @coach = Coach.find(params[:id])
+      @posts = @coach.posts
+      rooms = current_user.rooms
+      # 自分が入ってるroomの相手のidを格納する
+      @coach_ids = []
+      rooms.each do |r|
+        @coach_ids << r.coach_id
       end
-      end
     end
-      
-    def index
-     @user = User.find_by(id: params[:id])
-     @favorites = Favorite.where(user_id: @userid)
+  end
+
+  def index
+    # タグで検索をかけたらparams[:tag_id].present? が作動して、検索かけていない時はその後ろが動く
+    @coaches = params[:tag_id].present? ? Tag.find(params[:tag_id]).coaches : Coach.all
+  end
+
+  def edit
+    @coach = Coach.find(params[:id])
+    # ログインしているコーチのプロフィールのみ編集可能
+    if @coach.is_same?(current_coach)
+      render :edit
+    else
+      redirect_to coaches_coach_path
     end
-    
-    
-    def edit
-      @coach = current_coach
+  end
+
+  def update
+    @coach = current_coach
+    # tag_listにcoach_id, tag_idsを入れる。複数の場合はコンマで区切るようにする
+    tag_list = params[:coach][:tag_ids].split(",")
+    if @coach.update(coach_params)
+      @coach.save_tags(tag_list)
+      redirect_to coaches_coach_path
+    else
+      render :edit
     end
-    
-    def update
-      @coach = current_coach
-      tag_list = params[:coach][:tag_ids].split(",")
-     if @coach.update(coach_params)
-       @coach.save_tags(tag_list)
-       redirect_to coaches_coach_path
-     else
-       render :edit
-     end
+  end
+
+  private
+
+  def coach_params
+    params.require(:coach).permit(:name, :introduction, :profile_image)
+  end
+
+  def tag_params
+    params.require(:coach).permit(tag_ids[], :coach, :tag_id)
+  end
+  
+  def ensure_correct_user
+    @coach = Coach.find(params[:id])
+    unless @coach == current_coach
+      redirect_to coaches_coach_path(current_coach.id)
     end
-    
-     private 
-    
-    def coach_params
-      params.require(:coach).permit(:name, :introduction, :profile_image)
-    end
-    
-     def tag_params
-       params.require(:coach).permit(tag_ids[], :coach)
-     end
+  end
 end

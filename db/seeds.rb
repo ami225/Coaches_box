@@ -22,6 +22,30 @@ Coach.create!(
     profile_image: open("./app/assets/images/rugby1.jpg")
     )
     
+Coach.create!(
+    name: "玉木宏樹",
+    introduction: "中学、高校、大学で野球をしていました。現在整体師として働いています。",
+    email: "hiroki@hiroki",
+    password: "333333",
+    profile_image: open("./app/assets/images/baseball2.jpg")
+    )
+
+Coach.create!(
+    name: "須原旬生",
+    introduction: "学生時代は剣道一筋！どんどん稽古を仕込んでやる！どんどんこい！",
+    email: "jyunki@jyunki",
+    password: "444444",
+    profile_image: open("./app/assets/images/sakenomi.png")
+    )
+    
+Coach.create!(
+    name: "江下紫",
+    introduction: "学生時代はラクロスと弓道でキャプテンを任されていました！",
+    email: "ramu@ramu",
+    password: "555555",
+    profile_image: open("./app/assets/images/ramu.png")
+    )
+    
 User.create!(
     name: "山田直子",
     introduction: "〇〇大学剣道部主将です。",
@@ -37,39 +61,20 @@ User.create!(
     profile_image: open("./app/assets/images/r0843.png")
     )
     
-Category.create!(
-    name: "ラグビー",
+User.create!(
+    name: "黒木亮子",
+    introduction: "陸上部です！！",
+    email: "ryouko@ryouko",
+    password: "rrrrrr",
+    profile_image: open("./app/assets/images/avatar.png")
     )
     
-Category.create!(
-    name: "サッカー",
-    )
-
-Category.create!(
-    name: "剣道",
-    )
-    
-Category.create!(
-    name: "バスケットボール",
+User.create!(
+    name: "岡田美愛",
+    introduction: "ラクロスとバスケをしてました！",
+    email: "mini@mini",
+    password: "mmmmmm",
+    profile_image: open("./app/assets/images/mini.png")
     )
     
-Category.create!(
-    name: "ラクロス",
-    )
-    
-Category.create!(
-    name: "アイスホッケー",
-    )
-    
-Category.create!(
-    name: "野球",
-    )
-    
-Category.create!(
-    name: "バレーボール",
-    )
-    
-Category.create!(
-    name: "柔道",
-    )
 

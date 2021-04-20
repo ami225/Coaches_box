@@ -2,6 +2,6 @@
     <%= form_with model: @message, remote:true, method: :post do |f| %>
       <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 90 %>
       <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.submit "投稿",class: 'form-submit'%>
+      <%= f.submit "投稿", class: 'form-submit'%>
     <% end %>
 </div>

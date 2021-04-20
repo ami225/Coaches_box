@@ -3,25 +3,66 @@
     <h2 class="homepage-title">What is your dream?</h2>
     <p>さあ、強くなろう</p>
   </div>
+  <!-- Coacher's Box　ABOUT -->
   <div class="about">
-    <h3>コーチャーズボックスって何？</h3>
+    <div class="top-title">
+      <h3>コーチャーズボックスって何？</h3>
+    </div>
     <div class="home-about-text">
-      <h5>コーチたちが集まるBox(箱)です。<br>
+      <h5>コーチたちが集まるBoxです。<br>
       わからないこと、聞いてみたいことなどが聞けます。<br>
-      コーチの投稿やアドバイスを活かして練習しよう！
+      <div class="under-line-red">
+      "もっと強くなりたい"<br>
+      </div>
+      でも
+      <div class="under-line-blue">
+      "わからない""教えてくれる人がいない"
+      </div>
+      はもうありません。<br>
+      全てあなたの行動次第です。<br>
+      強くなろう、夢を叶えよう。<br>
+      いま、行動しよう。
       </h5>
       <a class="chat-logo">
-        <%= image_tag 'chat.png', :size =>'250x250' %>
+        <%= image_tag 'talk.png', :size =>'220x220' %>
+        <%= image_tag 'coachpage.png', :size =>'220x220' %>
       </a>
     </div>
   </div>
+  <!-- コーチのアドバイス投稿４つ -->
   <div class="home-start">
+    <div class="top-title">
+      <h3>新規登録はもう済んだ？</h3>
+    </div>
     <h5>
-    新規登録をすれば<br>
-    コーチたちに質問することができます。<br>
-    <%= link_to "登録する", new_user_registration_path %>
+    新規登録をすればコーチたちのアドバイス投稿が見れます。<br>
+    また、コーチたちに質問することができます。<br>
+   
     </h5>
+    <!--　投稿４つを表示 -->
+    <div class="container">
+     <div class="card-deck pt-5">
+        <% @posts.last(4).each do |post| %>
+         <div class="col-md-3 mb-3 ">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="video-post mx-auto pt-2" style="width: 200px;">
+                <% if post.post.attached? %>
+                  <%= video_tag rails_blob_path(post.post), size: "150x100",autoplay: true, muted: true %>
+              </div>
+              <h6><%= post.title %></h6>
+              <% end %>
+            </div>
+          </div>
+         </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="new-link mb-5">
+      <%= link_to "登録する", new_user_registration_path, :style =>"color:white;"%>
+    </div>
   </div>
+  <!-- コーチ募集 -->
   <div class="coach-recruit">
     <div class="coach-recruit-content">
       <h3 class="home-coach">選手を強くするのは"コーチ"だ。</h3>
@@ -34,7 +75,7 @@
       Now recruiting<br>
       Coach's</h2>
       <div class="coach-button">
-      <%= link_to "コーチ登録", new_user_registration_path, :style =>"color:white;"%>
+      <%= link_to "コーチ登録", new_coach_registration_path, :style =>"color:white;"%>
       </div>
     </div>
     

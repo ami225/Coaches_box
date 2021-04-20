@@ -1,4 +1,10 @@
 <div class="container pt-5">
+　<% if @post.errors.any? %>
+    <%= @post.errors.count %>件のerrorが発生しました
+    <% @post.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
   <div class="post-edit mx-auto" style="width: 600px;">
     <div class="pst"><p>NEW POST</p></div>
      <div class="row">
