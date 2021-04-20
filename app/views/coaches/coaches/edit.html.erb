@@ -1,3 +1,10 @@
+<% if @coach.errors.any? %>
+    <%= @coach.errors.count %>件のerrorが発生しました
+    <% @coach.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
 <div class="container_profile_edit">
     <%= form_with model: @coach, url: coaches_coach_path, local:true do |f| %>
       <%= attachment_image_tag @coach, :profile_image, :fill, 60, 60, fallback:"noimage.png", size:'200x200' %>

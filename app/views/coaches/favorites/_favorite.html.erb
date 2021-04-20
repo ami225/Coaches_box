@@ -1,10 +1,10 @@
 <!-- いいねボタン -->
 <% if @coach.favorited_by?(current_user) %>
-  <%= link_to coaches_coach_favorites_path(@coach), method: :delete, remote: true do %>
-  ♥<%= @coach.favorites.count %> Good Coach!!
+  <%= link_to coaches_coach_favorites_path(@coach), method: :delete, :style => "color:#6495ed;", remote: true do %>
+  <i class="fas fa-thumbs-up fa-fw"></i><%= @coach.favorites.count %> Good Coach!!
   <% end %>
 <% else %>
-  <%= link_to coaches_coach_favorites_path(@coach), method: :post, remote: true do %>
-  ♡<%= @coach.favorites.count %> Good Coach?
+  <%= link_to coaches_coach_favorites_path(@coach), method: :post, :style => "color:#6495ed;", remote: true do %>
+  <i class="far fa-thumbs-up fa-fw"></i><%= @coach.favorites.count %> Good Coach?
   <% end %>
 <% end %>

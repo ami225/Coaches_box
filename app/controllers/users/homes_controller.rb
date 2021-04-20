@@ -1,4 +1,5 @@
 class Users::HomesController < ApplicationController
-    def top
-    end
+  def top
+    @posts = Post.all
+  end
 end

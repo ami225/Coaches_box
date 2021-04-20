@@ -54,6 +54,15 @@ main{
 .logo{
   color: white;
 }
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1071;
+}
+.sidebar_fixed {
+  position: sticky;
+  top: 60px;
+}
 
 ul{
   list-style: none;
@@ -78,37 +87,60 @@ ul{
 /*=====================================
  top CSS
 =====================================*/
+/*トップ画像*/
 .home-content {
-    height: 500px;
-    text-align: center;
-    background-size: cover;
-    background-image: image-url("rugby2.jpg");
+  height: 500px;
+  text-align: center;
+  background-size: cover;
+  background-image: image-url("rugby2.jpg");
 }
-
 .home-content p {
-    padding-top: 20px;
-    font-size: 1.125rem;
-    color: #dddddd;
-    font-family: 'Shippori Mincho', serif;
+  padding-top: 20px;
+  font-size: 1.125rem;
+  color: #dddddd;
+  font-family: 'Shippori Mincho', serif;
 }
 /*見出し*/
 .homepage-title {
-    padding-top: 100px;
-    font-size: 5rem;
-    text-transform: uppercase;/*全ての文字を大文字に変換*/
-    color: #dddddd;
-    font-family: 'Shippori Mincho', serif;
-}
-/*about*/
-.about {
-    padding-top: 30px;
-    background-color: #dddddd;
+  padding-top: 100px;
+  font-size: 5rem;
+  text-transform: uppercase;/*全ての文字を大文字に変換*/
+  color: #dddddd;
+  font-family: 'Shippori Mincho', serif;
 }
 
-.home-about-text {
-    display: flex;
-    justify-content: flex-start;
+/*about*/
+.about {
+  padding: 30px;
+  background-color: #dddddd;
 }
+.home-about-text {
+  display: flex;
+  justify-content: flex-start;
+}
+.under-line-red{
+  width: 220px;
+  background:linear-gradient(transparent 70%, #ff7f7f 0%);/*文字にアンダーライン*/
+}
+.under-line-blue{
+  width: 370px;
+  background:linear-gradient(transparent 70%, #6495ed 0%);/*文字にアンダーライン*/
+}
+/*新規登録勧誘*/
+.home-start{
+  padding: 30px;
+}
+/*登録するボタン*/
+.new-link{
+  width: 200px;
+  margin: 0 auto;
+  font-size: 1.375rem;
+  background: #0066ff;
+  border-radius: 5px;
+  padding: 18px 32px;
+  text-align: center;
+}
+
 /*コーチ募集欄*/
 .coach-recruit{
   height: 600px;
@@ -127,6 +159,7 @@ ul{
 .home-coach{
   font-family: 'Shippori Mincho', serif;
 }
+
 .coach-title{
 width: 100%;
 text-align: center;
@@ -140,9 +173,24 @@ text-align: center;
   color: #fff;
   border-radius: 5px;
   padding: 18px 32px;
-  
 }
+/*共通に見出しの下にアンダーライン*/
+.top-title{
+  width: 500px;
+  text-align: center;
+  background:linear-gradient(transparent 70%, #00afcc 0%);
+}
+/*=====================================
+ user/show  CSS
+=====================================*/
 
+
+.mypage-text{
+  width: 250px;
+  text-decoration: none;
+  text-align: center;
+  background:linear-gradient(transparent 70%, #a0d8ef 0%);
+}
 /*=====================================
  user&coach/edit  CSS
 =====================================*/
@@ -203,6 +251,12 @@ text-align: center;
   text-align: center;
 }
 /*=====================================
+ post/index CSS
+=====================================*/
+.pagenation{
+  margin: 0;
+}
+/*=====================================
  room/show CSS
 =====================================*/
 .chat-room-user{
@@ -215,6 +269,8 @@ text-align: center;
 .left-message{
   text-align: left;
   padding: 5px 200px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .left-message .bms_message_box{
@@ -246,6 +302,8 @@ text-align: center;
   margin-top: 20px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
   max-width: 100%;/*文字が長くなった時に吹き出しがタイムラインからはみ出さない様にする*/
   font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
@@ -271,10 +329,17 @@ text-align: center;
   right: -10px;
   margin-top: -10px;
 }
+
 /*メッセージ送信フォーム*/
 .send-msg{
  padding-left: 500px;
  margin: 20px;
+}
+/*=====================================
+ finder CSS
+=====================================*/
+.card-deck{
+  margin: 0;
 }
 
 /*=====================================

@@ -10,5 +10,4 @@ class Coaches::CategoriesControllerTest < ActionDispatch::IntegrationTest
     get coaches_categories_edit_url
     assert_response :success
   end
-
 end
