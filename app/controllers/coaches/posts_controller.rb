@@ -1,4 +1,5 @@
 class Coaches::PostsController < ApplicationController
+  before_action :authenticate_coach!
   before_action :ensure_correct_coach, only: [:edit, :destroy]
 
   def new
