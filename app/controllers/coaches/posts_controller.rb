@@ -9,6 +9,7 @@ class Coaches::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.coach_id = current_coach.id
     if @post.save
+      flash[:notice] = "アドバイスを投稿しました！"
       redirect_to coaches_post_path(@post.id)
     else
       render :new
@@ -41,7 +42,7 @@ class Coaches::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to coaches_posts_path
+    redirect_to coaches_coach_path
   end
 
   private

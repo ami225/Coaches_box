@@ -4,13 +4,13 @@
       <div class="col-md-4" style="height: 200px; width: 200px;">
         <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png", size:'200x200', class: "card-img-left" %>
       </div>
-      <div class="col-md-7" style="height: 200px;">
+      <div class="col-md-7" style="height: 250px;">
         <div class="card-body pt-5">
           <h3 class="card-title font-weight-bold pb-1"><%= @user.name %></h3>
           <p class="card-text"><%= @user.introduction %></p>
-          <span class="button">
-            <%= link_to edit_user_path(@user.id) do %>
-              <%= image_tag 'setting.png', :size =>'70x70'%>プロフィールを編集
+          <span class="editting-button">
+            <%= link_to edit_user_path(@user.id), class: "link" do %>
+              <%= image_tag 'setting.png', :size =>'70x70'%>プロフィールを編集する
             <% end %>
           </span>
         </div>
@@ -21,7 +21,7 @@
   <div class="user-mypage-content col-6">
     <% if @user.is_same?(current_user) %>
     <div class="mypage-text">
-      <%= link_to "いいねしたコーチ一覧へ", coaches_coach_favorites_favorites_path(current_user.favorites), :style => "color:black;" %>
+      <%= link_to "いいねしたコーチ一覧へ", favorite_coaches_path, :style => "color:black;" %>
     </div>
   </div>
   <div class="user-mypage-content col-6">

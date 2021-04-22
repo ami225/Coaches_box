@@ -18,7 +18,7 @@
           <div class="sidebar_fixed">
             <ul class="nav-bar">
               <a class="logo" href="/">
-                <%= image_tag 'logo.png', :size =>'70x70'%>Coacher's Box
+                <%= image_tag 'logo.png', :size =>'70x70'%><span>Coacher's Box</span>
               </a>
              <!-- 一般側ログイン -->
               <% if user_signed_in? %>
@@ -29,13 +29,13 @@
                    <%= link_to "My Page", users_my_page_path, class: "link"%>
                   </li>
                   <li class="nav-item bg">
-                    <%= link_to "コーチの投稿一覧", coaches_posts_path, class: "link" %>
+                    <%= link_to "コーチの投稿一覧", posts_path, class: "link" %>
                   </li>
                   <li class="nav-item bg">
-                    <%= link_to "コーチ一覧", coaches_coaches_path, class: "link"%>
+                    <%= link_to "コーチ一覧", coaches_path, class: "link"%>
                   </li>
                   <li class="nav-item bg">
-                    <%= link_to "いいねしたコーチ", coaches_coach_favorites_favorites_path(current_user.favorites), class: "link"%>
+                    <%= link_to "いいねしたコーチ", favorite_coaches_path, class: "link"%>
                   </li>
                   <li class="nav-item bg">
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link"%>
@@ -82,7 +82,11 @@
           </div>
         </nav>
         <div class="col-md-10">
+          <% if flash[:notice] %>
+        <div class="alert alert-primary mb-0" role="alert"><strong><%= notice %></strong></div>
+        <% end %>
           <main>
+            
             <%= yield %>
           </main>
         </div>

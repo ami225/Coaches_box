@@ -1,3 +1,4 @@
+<!-- ユーザーがサインイン -->
 <% if user_signed_in? %>
   <div class="chat-index pt-3" style= "text-align: center">
     <h5>コーチたちへの質問一覧</h5>
@@ -12,12 +13,13 @@
       <% @rooms.each do |room| %>
        <tr>
           <th><i class="fas fa-user-circle fa-fw"></i><%= room.coach.name %></th>
-          <th><%= room.coach.name %>との<%= link_to "チャットルームへ", room_path(room.id) %></th>
+          <th><%= room.coach.name %>との<%= link_to "チャットルームへ", room_path(room.id), class: "link" %></th>
        </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
+<!-- コーチがサインイン -->
 <% if coach_signed_in? %>
 <div class="chat-index pt-3" style= "text-align: center">
   <h5>選手たちからの質問一覧</h5>

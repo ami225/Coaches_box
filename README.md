@@ -4,7 +4,7 @@ Coacher's Box(コーチャーズボックス）
 
 ## サイト概要
 
-現在スポーツの監督をしている大人、現役の学生もしくは社会人チームに所属している選手、現役ではないがスポーツのことでアドバイスをしたいという社会人の方など誰でも監督登録ができ、それを閲覧することができるサイト。閲覧する側も会員登録をすれば、監督にダイレクトメッセージを送れてアドバイスを聞くことができる。また監督でない学生同士でもダイレクトメッセージが送れるのでコミュニケーションを取り合い、練習試合や合同練習なども行える。
+現在スポーツの監督をしている大人、現役の学生もしくは社会人チームに所属している選手、現役ではないがスポーツのことでアドバイスをしたいという社会人の方など誰でも監督登録ができ、それを閲覧することができるサイト。閲覧する側も会員登録をすれば、監督にダイレクトメッセージを送れてアドバイスを聞くことができる。
 
 ### サイトテーマ
 
@@ -41,3 +41,9 @@ https://docs.google.com/spreadsheets/d/1lHKW2PJlggR11rbeiivD8CJez-Ii5OhgRRPxtJtW
 ## 使用素材
 
 - O-DAN FREE PHOTO (https://o-dan.net/ja/)
+- Canva (https://www.canva.com/)
+- PHOTO AC (https://www.photo-ac.com/)
+- pixabay (https://pixabay.com/ja/videos/)
+- Linustock (https://www.linustock.com/)
+- Loose drawing (https://loosedrawing.com/)
+- shigureni (https://www.shigureni.com/)

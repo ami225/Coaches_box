@@ -1,0 +1,25 @@
+<div class="favorite-coach pt-4">あなたがいいねしたコーチたち</div>
+  <table class="table table-hover mb-0">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"><i class="far fa-user fa-fw"></i>Coach</th>
+          <th scope="col"><i class="far fab fa-speakap fa-fw"></i>自己紹介</th>
+          <th scope="col"><i class="far fa-address-card fa-fw"></i>Coach Profile</th>
+      </thead>
+      <tbody>
+        <% @favorites.each do |favorite| %>
+          <tr>
+            <th>
+              <i class="fas fa-user-circle fa-fw"></i><%= favorite.coach.name %>
+            </th>
+            <th>
+              <%= favorite.coach.introduction %>
+            </th>
+            <th>
+              <%= link_to"Coach Profileへ", coach_path(favorite.coach.id) %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+ 

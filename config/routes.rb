@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
-  namespace :coaches do
-    resources :coaches, only: [:show, :edit, :index, :update] do
-      resource :favorites, only: [:create, :destroy]
-      get 'favorites/favorites' => 'favorites#index'
-    end
-  end
 
   # Coach側ルーティング
   namespace :coaches do
-    root to: 'homes#top'
+    resources :coaches, only: [:show, :edit, :index, :update] do
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :posts, only: [:new, :create, :edit, :update, :index, :show, :destroy]
   end
   devise_for :coaches, controllers: {
@@ -22,6 +18,8 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get   'users/my_page' => 'users#show'
     resources :users, only: [:edit, :update] 
+    resources :coaches, only: [:show, :index]
+    resources :posts, only: [:index, :show]
   end
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -29,9 +27,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
-  # DM機能ルーティング（コーチ側ユーザー側共通）
+  # コーチ側ユーザー側共通ルーティング
 
   resources :messages, only: [:create]
   resources :rooms,    only: [:create, :show, :index]
   get 'finder' => "finders#finder"
+  resources :favorite_coaches, only: [:index] 
 end
