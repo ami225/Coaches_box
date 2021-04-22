@@ -41,4 +41,18 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
+  describe "#is_same?" do
+    let(:user) { create(:user) }
+    context 'ログインしているユーザーをtrueで返す' do
+      it 'ログインしているユーザーのみtrueにしているか' do
+        expect(user.is_same?(user)).to be true
+      end
+    end
+    context 'ログインしていないコーチをfalseで返す' do
+      let(:other_user) { create(:user) }
+      it 'when fail' do
+        expect(user.is_same?(other_user)).to be false
+      end
+    end
+  end
 end

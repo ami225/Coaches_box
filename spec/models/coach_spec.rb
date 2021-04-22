@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Coachモデルのテスト', type: :model do
   let(:coach) { create(:coach) }
   describe 'バリデーションのテスト' do
-
+    #subject{ coach.valid? }でis_expectedが使えるようになる
     subject { coach.valid? }
     let!(:other_coach) { create(:coach) }
     
@@ -79,7 +79,7 @@ RSpec.describe 'Coachモデルのテスト', type: :model do
       #resの人はoutputと完全一致しているか検証
       expect(res.first.name).to eq output
     end
-    it "検索文字列がpartial_matchdで返す" do
+    it "検索文字列がpartial_matchで返す" do
       #コーチを作成して、nameを"other_test_item"さん
       create(:coach, name: "other_test_item")
       #部分一致なので"other_test_item"の"test_item"の部分だけを代入
@@ -93,13 +93,18 @@ RSpec.describe 'Coachモデルのテスト', type: :model do
     end
   end
   
-  describe "def is_same?(current_coach)" do
-    create(coach: coach)
-    login_coach
+  describe "#is_same?" do
+    let(:coach) { create(:coach) }
+    context 'ログインしているコーチをtrueで返す' do
       it 'ログインしているコーチのみtrueにしているか' do
-        expect(Coach.is_same?(@coach)).to be true
+        expect(coach.is_same?(coach)).to be true
       end
+    end
+    context 'ログインしていないコーチをfalseで返す' do
+      let(:other_coach) { create(:coach) }
+      it 'when fail' do
+        expect(coach.is_same?(other_coach)).to be false
+      end
+    end
   end
-  
-  
 end

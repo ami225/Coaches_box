@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: タイトル
+        body: 本文
+      coach:
+        name: 名前
+        introduction: 自己紹介文
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        Signup: サインアップ
+      user: 
+        name: 名前
+        introduction: 自己紹介文
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン

@@ -1,0 +1,52 @@
+<div class="container pt-5">
+    <div class="card rounded pb-5  mx-auto">
+      <div class="row g-0">
+        <div class="col-md-3 mx-auto pt-3 pb-3" style="height: 250px;">
+          <%= attachment_image_tag @coach, :profile_image, fallback: "noimage.png", size:'200x200', class: "card-img-left" %>
+        </div>
+        <div class="col-md-7" style="height: 200px;">
+          <div class="card-body pt-5">
+            <h3 class="card-title font-weight-bold pb-1"><%= @coach.name %></h3>
+            <p class="card-text">
+              <%= @coach.introduction %><br>
+              <% @coach.tags.each do |tag| %>
+                <%= tag.tag_name %>
+              <% end %>
+              </p>
+              <!-- お気に入りボタン -->
+              <div id="favorites_buttons_<%= @coach.id %>">
+                <%= render partial: 'coaches/favorites/favorite', locals: { coach: @coach} %>
+              </div>
+            <!-- DM -->
+            <% if @coach_ids.include?(@coach.id) %>
+             <br>
+             <%= link_to "チャットへ", room_path(@room.ids) %><br>
+            <% else %>
+              <%= form_for Room.new do |f| %>
+                <%= f.hidden_field :coach_id, :value => @coach.id %>
+                <%= f.submit '質問する', class:"btn btn-info" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pst"><p>POSTS</p></div>
+    <div class="card-deck mt-5">
+      <% @posts.each do |post| %>
+        <div class="col-md-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <% if post.post.attached? %>
+                <div class="video-post mx-auto" style="width: 200px;">
+                 <%= video_tag rails_blob_path(post.post), size: "120x150",autoplay: true, muted: true %>
+                </div>
+              <% end %>
+              <h6><%= post.title %></h6>
+              <%= link_to "READ MORE", coaches_post_path(post.id), :style => "color:red;" %><br>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>

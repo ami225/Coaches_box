@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def create
-    # byebug
     @room = Room.find(params[:message][:room_id])
     @message = Message.new(message_params)
     # メッセージがuserによるものだったらis_user=true, shopによるものだったらis_user=false

@@ -1,8 +1,10 @@
 <% if @coach.errors.any? %>
+<div class="alert alert-danger" role="alert">
     <%= @coach.errors.count %>件のerrorが発生しました
     <% @coach.errors.full_messages.each do |message| %>
       <%= message %>
     <% end %>
+  </div>
   <% end %>
 
 <div class="container_profile_edit">
@@ -10,19 +12,19 @@
       <%= attachment_image_tag @coach, :profile_image, :fill, 60, 60, fallback:"noimage.png", size:'200x200' %>
       <div class="profile-edit">
       <label for="inputImage">Image</label>
-      <%= f.attachment_field :profile_image, placeholder:"profile_image" %>
+        <%= f.attachment_field :profile_image, placeholder:"profile_image" %>
       </div>
       <div class="profile-edit">
-      <label for="inputName">Name</label>
-      <%= f.text_field :name, autofocus:true, id:"inputName",  placeholder:"Name" %>
+        <label for="inputName">Name</label>
+        <%= f.text_field :name, autofocus:true, id:"inputName",  placeholder:"Name" %>
       </div>
       <div class="profile-edit">
       <h4>自己紹介</h4>
-      <%= f.text_area :introduction %>
+        <%= f.text_area :introduction %>
       </div>
       <h4>タグ付け</h4>
-      <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
-      placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
+        <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
+        placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
       <div class="profile-edit">
       <br><%= f.submit '変更を保存する', class:"btn btn-outline-primary" %></br>
       </div>
