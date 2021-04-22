@@ -1,48 +1,100 @@
+<% if coach_signed_in? %>
+  <div class="search-content pt-5 pl-3">
+    <h4>コーチ、投稿を検索してみる</h4>
+      <%= render 'finders/search'%>
+  </div>
+  <% if @range == "Coach" %>
+    <h2 class="pl-3">コーチ検索結果</h2>
+     <table class="table table-hover mb-0">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"><i class="far fa-user fa-fw"></i>Coach</th>
+          <th scope="col"><i class="far fab fa-speakap fa-fw"></i>自己紹介</th>
+          <th scope="col"><i class="far fa-address-card fa-fw"></i>Coach Profile</th>
+      </thead>
+      <tbody>
+        <% @coaches.each do |coach| %>
+          <tr>
+            <th>
+              <i class="fas fa-user-circle fa-fw"></i><%= coach.name %>
+            </th>
+            <th>
+              <%= coach.introduction %>
+            </th>
+            <th>
+              <%= link_to"Coach Profileへ", coaches_coach_path(coach.id) %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h2 class="pl-3">投稿検索結果</h2>
+      <div class="card-deck pt-5">
+        <!-- コントローラーに定義した@postsから探す-->
+        <% @posts.each do |post| %>
+          <div class="col-md-4 mb-3 ">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="video-post mx-auto pt-2" style="width: 200px;">
+                 <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
+                </div>
+                <h6><%= post.title %></h6>
+                <%= link_to "READ MORE", coaches_post_path(post.id) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+<% end %>
+<% if user_signed_in? %>
 <div class="search-content pt-5 pl-3">
   <h4>コーチ、投稿を検索してみる</h4>
     <%= render 'finders/search'%>
-</div>
-<% if @range == "Coach" %>
-<h2 class="pl-3">コーチ検索結果</h2>
-   <table class="table table-hover mb-0">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col"><i class="far fa-user fa-fw"></i>Coach</th>
-        <th scope="col"><i class="far fab fa-speakap fa-fw"></i>自己紹介</th>
-        <th scope="col"><i class="far fa-address-card fa-fw"></i>Coach Profile</th>
-    </thead>
-    <tbody>
-      <% @coaches.each do |coach| %>
+  </div>
+  <% if @range == "Coach" %>
+  <h2 class="pl-3">コーチ検索結果</h2>
+     <table class="table table-hover mb-0">
+      <thead class="thead-dark">
         <tr>
-          <th>
-            <i class="fas fa-user-circle fa-fw"></i><%= coach.name %>
-          </th>
-          <th>
-            <%= coach.introduction %>
-          </th>
-          <th>
-            <%= link_to"Coach Profileへ", coaches_coach_path(coach.id) %>
-          </th>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-　　<h2 class="pl-3">投稿検索結果</h2>
-    <div class="card-deck pt-5">
-      <!-- コントローラーに定義した@postsから探す-->
-      <% @posts.each do |post| %>
-        <div class="col-md-4 mb-3 ">
-          <div class="card shadow">
-            <div class="card-body">
-              <div class="video-post mx-auto pt-2" style="width: 200px;">
-               <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
+          <th scope="col"><i class="far fa-user fa-fw"></i>Coach</th>
+          <th scope="col"><i class="far fab fa-speakap fa-fw"></i>自己紹介</th>
+          <th scope="col"><i class="far fa-address-card fa-fw"></i>Coach Profile</th>
+      </thead>
+      <tbody>
+        <% @coaches.each do |coach| %>
+          <tr>
+            <th>
+              <i class="fas fa-user-circle fa-fw"></i><%= coach.name %>
+            </th>
+            <th>
+              <%= coach.introduction %>
+            </th>
+            <th>
+              <%= link_to"Coach Profileへ", coach_path(coach.id) %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h2 class="pl-3">投稿検索結果</h2>
+      <div class="card-deck pt-5">
+        <!-- コントローラーに定義した@postsから探す-->
+        <% @posts.each do |post| %>
+          <div class="col-md-4 mb-3 ">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="video-post mx-auto pt-2" style="width: 200px;">
+                 <%= video_tag rails_blob_path(post.post), size: "200x100",autoplay: true, muted: true %>
+                </div>
+                <h6><%= post.title %></h6>
+                <%= link_to "READ MORE", post_path(post.id) %>
               </div>
-              <h6><%= post.title %></h6>
-              <%= link_to "READ MORE", coaches_post_path(post.id) %>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+  <% end %>
 <% end %>

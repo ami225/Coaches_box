@@ -16,6 +16,8 @@ describe '投稿のテスト' do
   end
   describe "投稿画面(new_coaches_post_path)のテスト" do
     before do
+      #login_asでdeviseで二つ作っているときはscope: :(ログインさせたいもの)を書く
+      login_as(coach, scope: :coach)
       visit new_coaches_post_path
     end
     context '表示の確認' do
@@ -35,6 +37,7 @@ describe '投稿のテスト' do
   end
   describe "投稿一覧のテスト" do
     before do
+      login_as(coach, scope: :coach)
       visit coaches_posts_path
     end
     context '表示内容の確認' do

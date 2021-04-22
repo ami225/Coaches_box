@@ -25,7 +25,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Noto Sans JP', sans-serif;
  }
 /*=====================================
  共通 CSS
@@ -33,6 +32,7 @@
 
 body{
   min-height: 100vh;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 main{
@@ -129,22 +129,28 @@ ul{
   background-image: url(rugby2.jpg);
 }
 .image2 {
-  background-image: url(swimming1.jpg);
+  background-image: url(running.jpg);
 }
 .image3 {
-  background-image: url(kendoo.jpg);
+  background-image: url(handicap.jpg);
 }
 .image4 {
-  background-image: url(basketball-team.jpg);
+  background-image: url(tennis.jpg);
 }
 .image5 {
   background-image: url(icehockey2.jpg);
 }
 .image6 {
-  background-image: url(lacrosse-img.jpg);
+  background-image: url(tabletennis.jpg);
 }
 .image7 {
-  background-image: url(soccer-shot.jpg);
+  background-image: url(swimming1.jpg);
+}
+.image8 {
+  background-image: url(woman.jpg);
+}
+.image9 {
+  background-image: url(kendoo.jpg);
 }
 
 #randam{
@@ -153,7 +159,7 @@ ul{
 /*スライドショー内文字*/
 .slide .container{
   position: absolute;
-  top: 10%;
+  top: 7%;
   left: 5%;
   z-index: 999;
   width: 1000px;
@@ -172,31 +178,36 @@ ul{
 
 /*about*/
 .about {
-  padding: 30px;
-  background-color: #dddddd;
+  padding: 50px;
+  margin-bottom: 50px;
 }
 .home-about-text {
   display: flex;
   justify-content: flex-start;
 }
 .under-line-red{
-  width: 220px;
+  width: 300px;
   background:linear-gradient(transparent 70%, #ff7f7f 0%);/*文字にアンダーライン*/
 }
 .under-line-blue{
-  width: 370px;
+  width: 500px;
   background:linear-gradient(transparent 70%, #6495ed 0%);/*文字にアンダーライン*/
+}
+.chat-logo2{
+  padding-top: 200px;
+  margin-left: 20px;
 }
 /*新規登録勧誘*/
 .home-start{
-  padding: 30px;
+  padding: 50px;
+  margin-bottom: 50px;
 }
 /*登録するボタン*/
 .new-link{
   width: 200px;
   font-size: 20px;
     /*ボタンの形状*/   
-	display:inline-block;
+	display: inline-block;
   background:#2ca9e1;
   padding: 10px 20px;
   border: 5px solid #2ca9e1;
@@ -220,7 +231,7 @@ ul{
 }
 /*コーチ募集欄*/
 .coach-recruit{
-  height: 600px;
+  height: 700px;
   padding: 30px 0;
   background-size: cover;
   background-image: image-url("coach.jpg");
@@ -230,10 +241,11 @@ ul{
   color: white;
 }
 /*見出し*/
-.coach-recruit p {
+.home-coach{
   font-family: 'Shippori Mincho', serif;
 }
-.home-coach{
+.coach-recruit p {
+  font-size: 30px;
   font-family: 'Shippori Mincho', serif;
 }
 .homepage-title {
@@ -244,7 +256,8 @@ ul{
   font-family: 'Shippori Mincho', serif;
 }
 .coaching{
-  padding: 30px;
+  padding: 50px;
+  margin-bottom: 50px;
 }
 .coach-title{
 width: 100%;
@@ -269,7 +282,7 @@ text-align: center;
 /*hoverした際の角丸のアニメーション*/
 .home-button:hover{
 	background:#e60033;
-	border-radius:20px;	
+	border-radius: 20px;	
 	.link{
 	  color: #ffb2d8;
 	}
@@ -288,17 +301,17 @@ text-align: center;
 
 /*下からの距離が変化して全体が下→上→下に動く*/
 @keyframes arrowmove{
-      0%{top: 28%;}
-      50%{top: 29%;}
-     100%{top: 28%;}
+      0%{top: 20%;}
+      50%{top: 21%;}
+     100%{top: 20%;}
  }
 
 /*Scrollテキストの描写*/
 .scrolldown4 span{
     /*描画位置*/
 	position: absolute;
-	left:-20px;
-	bottom:10px;
+	left: -20px;
+	bottom: 10px;
     /*テキストの形状*/
 	color: #eee;
 	font-size: 0.7rem;
@@ -327,8 +340,8 @@ text-align: center;
 	content:"";
     /*描画位置*/
 	position: absolute;
-	bottom:0;
-	right:0;
+	bottom: 0;
+	right: 0;
     /*矢印の形状*/
 	width:1px;
 	height: 50px;
@@ -336,11 +349,38 @@ text-align: center;
 }
 
 /*共通に見出しの下にアンダーライン*/
-.top-title{
-  width: 500px;
+.top-title {
+  width: 700px;
   text-align: center;
-  background:linear-gradient(transparent 70%, #00afcc 0%);
+  position: relative;
+  margin: 2em;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  background: #ffffff;
 }
+
+.top-title:before,
+.top-title:after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.top-title:before {
+  bottom: -15px;
+  left: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.top-title:after {
+  bottom: -30px;
+  left: 50px;
+  width: 15px;
+  height: 15px;
+}
+
 /*=====================================
  user/coach/show  CSS
 =====================================*/
