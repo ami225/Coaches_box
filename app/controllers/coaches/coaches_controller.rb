@@ -1,17 +1,17 @@
 class Coaches::CoachesController < ApplicationController
   # コーチのみ編集と削除ができる
-  before_action :authenticate_coach! 
-  before_action :ensure_correct_coach, only:[:edit]
+  before_action :authenticate_coach!
+  before_action :ensure_correct_coach, only: [:edit]
   def show
-      @coach = Coach.find(params[:id])
-      # コーチに紐づいた投稿
-      @posts = @coach.posts
-      rooms = current_coach.rooms
-      # 自分が入ってるroomの相手のidを格納する
-      @user_ids = []
-      rooms.each do |r|
-        @user_ids << r.user_id
-      end
+    @coach = Coach.find(params[:id])
+    # コーチに紐づいた投稿
+    @posts = @coach.posts
+    rooms = current_coach.rooms
+    # 自分が入ってるroomの相手のidを格納する
+    @user_ids = []
+    rooms.each do |r|
+      @user_ids << r.user_id
+    end
   end
 
   def index
@@ -51,7 +51,7 @@ class Coaches::CoachesController < ApplicationController
   def tag_params
     params.require(:coach).permit(tag_ids[], :coach, :tag_id)
   end
-  
+
   def ensure_correct_coach
     @coach = Coach.find(params[:id])
     unless @coach == current_coach

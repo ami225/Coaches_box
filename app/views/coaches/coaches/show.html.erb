@@ -38,7 +38,7 @@
         <div class="card-body">
           <% if post.post.attached? %>
             <div class="video-post mx-auto" style="width: 200px;">
-             <%= video_tag rails_blob_path(post.post), size: "120x150",autoplay: true, muted: true %>
+             <%= video_tag rails_blob_path(post.post), size: "180x150",autoplay: true, muted: true %>
             </div>
           <% end %>
         <h6><%= post.title %></h6>

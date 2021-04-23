@@ -1,5 +1,7 @@
 class Coaches::PostsController < ApplicationController
+  # ログインしているコーチ以外はトップページへ遷移
   before_action :authenticate_coach!
+  # コーチしか編集できない
   before_action :ensure_correct_coach, only: [:edit, :destroy]
 
   def new
@@ -43,7 +45,8 @@ class Coaches::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to coaches_coach_path
+    # そのままの画面に遷移
+    redirect_back(fallback_location: root_url)
   end
 
   private

@@ -2,11 +2,13 @@ require 'rails_helper'
 describe 'ユーザーのテスト' do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
+
   describe 'ユーザー詳細画面のテスト' do
     before do
       login_as(user, scope: :user)
       visit users_my_page_path(user)
     end
+
     context '表示のテスト' do
       it 'ユーザー編集画面へのリンクがあるか' do
         expect(page).to have_link 'プロフィールを編集'
@@ -31,11 +33,13 @@ describe 'ユーザーのテスト' do
       end
     end
   end
+
   describe 'ユーザー編集画面のテスト' do
     before do
-    login_as(user, scope: :user)
-    visit edit_user_path(user)
+      login_as(user, scope: :user)
+      visit edit_user_path(user)
     end
+
     context '表示のテスト' do
       it 'name編集フォームが表示される' do
         expect(page).to have_field 'user[name]', with: user.name
@@ -47,12 +51,14 @@ describe 'ユーザーのテスト' do
         expect(page).to have_button '変更を保存する'
       end
     end
+
     context 'ボタンのテスト' do
       it 'リダイレクト先が、ユーザー詳細画面になっている' do
         click_button '変更を保存する'
         expect(current_path).to eq '/users/my_page'
       end
     end
+
     context '更新のテスト' do
       before do
         @user_old_name = user.name
@@ -61,6 +67,7 @@ describe 'ユーザーのテスト' do
         fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 10)
         click_button '変更を保存する'
       end
+
       it 'nameが正しく更新される' do
         expect(user.reload.name).not_to eq @user_old_name
       end
@@ -68,6 +75,7 @@ describe 'ユーザーのテスト' do
         expect(user.reload.introduction).not_to eq @user_old_intrpduction
       end
     end
+
     context 'ボタンのテスト' do
       it 'リダイレクト先が、ユーザー詳細画面になっている' do
         click_button '変更を保存する'
