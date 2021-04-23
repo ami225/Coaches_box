@@ -23,30 +23,31 @@
   <div class="scrolldown4"><span>Scroll</span></div>
 </div>
 
-  
+
   <!-- Coacher's Box　ABOUT -->
-  <div class="top-title">
-    <h1>What Coacher's Box？</h1>
-  </div>
+<div class="top-title">
+  <h1>What Coacher's Box？</h1>
+</div>
+
   <div class="about">
     <div class="home-about-text">
-      <h3>Coacher's Box (コーチャーズボックス)<br>
-      コーチが選手にアドバイスをくれるBoxです。<br>
-      わからないこと、聞いてみたいことなどが聞けます。<br>
-      <br>
-      <div class="under-line-red">
-      "もっと強くなりたい"<br>
-      </div>
-      でも
-      <div class="under-line-blue">
-      "わからない""教えてくれる人がいない"
-      </div>
-      <br>
-      はもうありません。<br>
-      全てあなたの行動次第です。<br>
-      強くなろう、夢を叶えよう。<br>
-      いま、行動しよう。
-      </h3>
+      <p>
+        <span class="smoothText">
+          <span class="smoothTextTrigger" >
+            Coacher's Box (コーチャーズボックス)<br>
+            コーチが選手にアドバイスをくれるBoxです。<br>
+            わからないこと、聞いてみたいことなどが<br>
+            聞けます。<br>
+            "もっと強くなりたい"<br>
+            でも<br>
+            "わからない""教えてくれる人がいない"<br>
+            はもうありません。<br>
+            全てあなたの行動次第です。<br>
+            強くなろう、夢を叶えよう。<br>
+            いま、行動しよう。
+          </span>
+        </span>
+      </p>
       <a class="chat-logo">
         <%= image_tag '2.png', :size =>'220x220' %>
       </a>
@@ -60,26 +61,31 @@
       <h1>新規登録はもう済んだ？</h1>
     </div>
   <div class="home-start">
-    <h3>
-    新規登録をすればコーチたちのアドバイス投稿が見れます。<br>
-    また、コーチたちに質問することができます。<br>
-    </h3>
+    <p>
+      <span class="smoothText">
+        <span class="smoothTextTrigger" >
+          新規登録をすればコーチたちのアドバイス投稿が見れます。<br>
+          また、様々なスポーツの知識を持った
+          コーチたちに質問することができます。<br>
+        </span>
+      </span>
+    </p>
     <!--　投稿４つを表示 -->
     <div class="container">
      <div class="card-deck pt-5">
         <% @posts.last(4).each do |post| %>
-         <div class="col-md-3 mb-3 ">
-          <div class="card shadow", style="width: 250px">
-            <div class="card-body">
-              <div class="video-post mx-auto pt-2" style="width: 200px;">
+          <div class="col-md-3 mb-3 ">
+            <div class="card shadow", style="width: 250px">
+              <div class="card-body">
                 <% if post.post.attached? %>
-                  <%= video_tag rails_blob_path(post.post), size: "200x200",autoplay: true, muted: true %>
+                  <div class="video-post mx-auto pt-2" style="width: 200px;">
+                    <%= video_tag rails_blob_path(post.post), size: "200x200",autoplay: true, muted: true %>
+                  </div>
+                  <h6><%= post.title %></h6>
+                <% end %>
               </div>
-              <h6><%= post.title %></h6>
-              <% end %>
             </div>
           </div>
-         </div>
         <% end %>
       </div>
     </div>
@@ -94,12 +100,17 @@
       <h1>You can make the player stronger</h1>
   </div>
   <div class="coaching">
-    <h3>学生時代スポーツに打ち込んでいた社会人の方、<br>
-    現役でスポーツをしているが誰かを育ててみたい学生、社会人の方<br>
-    コーチ登録をすれば、誰でもCoachになることができます。<br>
-    また、あなたのスポーツの知識で多くのスポーツを行う人々が<br>
-    諦めかけた目標を達成できる可能性が広がります。
-    </h3>
+    <p>
+      <span class="smoothText">
+        <span class="smoothTextTrigger" >
+          学生時代スポーツに打ち込んでいた社会人の方、<br>
+          現役でスポーツをしているが誰かを育ててみたい学生、社会人の方<br>
+          コーチ登録をすれば、誰でもCoachになることができます。<br>
+          また、あなたのスポーツの知識で多くのスポーツを行う人々が<br>
+          諦めかけた目標を達成できる可能性が広がります。
+        </span>
+      </span>
+    </p>
   </div>
   <div class="coach-recruit">
     <div class="coach-recruit-content">
@@ -109,10 +120,10 @@
       </p>
     </div>
     <div class="coach-title">
-      <h2 class="homepage-title">
-      Now recruiting<br>
-      Coach's</h2>
-      <div class="home-button push">
+      <p class="eachTextAnime">
+      Now recruiting Coach's
+      </p>
+      <div class="home-button push ">
       <%= link_to "コーチ登録", new_coach_registration_path, class: "link"%>
       </div>
     </div>

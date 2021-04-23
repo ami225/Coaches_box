@@ -126,7 +126,8 @@ ul{
 /*=====================================
  top CSS
 =====================================*/
-/*スライドショー画像*/
+/*=== スライドショー ====*/
+    /*スライド画像*/
 .image1 {
   background-image: image-url("rugby2.jpg");
 }
@@ -177,119 +178,7 @@ ul{
   color: #dddddd;
   font-family: 'Shippori Mincho', serif;
 }
-
-/*about*/
-.about {
-  padding: 50px;
-  margin-bottom: 50px;
-}
-.home-about-text {
-  display: flex;
-  justify-content: flex-start;
-}
-.under-line-red{
-  width: 300px;
-  background:linear-gradient(transparent 70%, #ff7f7f 0%);/*文字にアンダーライン*/
-}
-.under-line-blue{
-  width: 500px;
-  background:linear-gradient(transparent 70%, #6495ed 0%);/*文字にアンダーライン*/
-}
-.chat-logo2{
-  padding-top: 200px;
-  margin-left: 20px;
-}
-/*新規登録勧誘*/
-.home-start{
-  padding: 50px;
-  margin-bottom: 50px;
-}
-/*登録するボタン*/
-.new-link{
-  width: 250px;
-  font-size: 30px;
-    /*ボタンの形状*/   
-	display: inline-block;
-  background:#2ca9e1;
-  padding: 10px 20px;
-  border: 5px solid #2ca9e1;
-  outline: none;
-  /*アニメーションの指定*/   
-  transition:.3s ease-out;
-  .link{
-    text-decoration: none;
-    color: #fff;    };
-}
-
-.new-button{
-  text-align: center;
-}
-.new-link:hover{
-	background:#2ca9e1;
-	border-radius: 20px;	
-	.link{
-	  color: #a2d7dd;
-	}
-}
-/*コーチ募集欄*/
-.coach-recruit{
-  height: 700px;
-  padding: 30px 0;
-  background-size: cover;
-  background-image: image-url("coach.jpg");
-}
-.coach-recruit-content{
-  padding: 30px;
-  color: white;
-}
-/*見出し*/
-.home-coach{
-  font-family: 'Shippori Mincho', serif;
-}
-.coach-recruit p {
-  font-size: 30px;
-  font-family: 'Shippori Mincho', serif;
-}
-.homepage-title {
-  padding-top: 100px;
-  font-size: 5rem;
-  text-transform: uppercase;/*全ての文字を大文字に変換*/
-  color: #dddddd;
-  font-family: 'Shippori Mincho', serif;
-}
-.coaching{
-  padding: 50px;
-  margin-bottom: 50px;
-}
-.coach-title{
-  width: 100%;
-  text-align: center;
-}
-/*コーチ登録ボタン*/
-.home-button{
-  width: 250px;
-  font-size: 30px;
-    /*ボタンの形状*/   
-	display:inline-block;
-  background: #e60033;
-  padding: 10px 20px;
-  border: 5px solid #e60033;
-  outline: none;
-  /*アニメーションの指定*/   
-  transition:.3s ease-out;
-  .link{
-    text-decoration: none;
-    color: #fff;    }
-}
-/*hoverした際の角丸のアニメーション*/
-.home-button:hover{
-	background:#e60033;
-	border-radius: 20px;	
-	.link{
-	  color: #ffb2d8;
-	}
-}
-/*=== 9-1-4 矢印が動いてスクロールを促す  ====*/
+/*=== スクロールを促す ====*/
 
 /*スクロールダウン全体の場所*/
 .scrolldown4{
@@ -297,15 +186,15 @@ ul{
 	/*スクロールの位置*/
 	top: 10%;
 	right: 50%;
-    /*矢印の動き1秒かけて永遠にループ*/
+    /*矢印の動き1秒かけて永遠にループ arrowmove(下向き矢印), ease-in-out(開始時と終了時は、かなり緩やかに変化), infinite(無限)*/
 	animation: arrowmove 1s ease-in-out infinite;
 }
 
 /*下からの距離が変化して全体が下→上→下に動く*/
 @keyframes arrowmove{
-    0%{top: 19%;}
-    50%{top: 20%;}
-   100%{top: 19%;}
+    0%{top: 17%;}
+    50%{top: 18%;}
+   100%{top: 17%;}
  }
 
 /*Scrollテキストの描写*/
@@ -345,17 +234,136 @@ ul{
 	bottom: 0;
 	right: 0;
     /*矢印の形状*/
-	width:1px;
+	width: 1px;
 	height: 50px;
 	background:#eee;
 }
 
+/*=== ABOUT ====*/
+.about {
+  padding: 50px;
+  margin-bottom: 80px;
+}
+.home-about-text {
+  display: flex;
+  justify-content: flex-start;
+}
+.chat-logo2{
+  padding-top: 200px;
+  margin-left: 20px;
+}
+/*=== 新規登録勧誘 ====*/
+.home-start{
+  padding: 50px;
+  margin-bottom: 50px;
+}
+/*登録するボタン*/
+.new-link{
+  width: 250px;
+  font-size: 30px;
+    /*ボタンの形状*/   
+	display: inline-block;
+  background:#2ca9e1;
+  padding: 10px 20px;
+  border: 5px solid #2ca9e1;
+  outline: none;
+  /*アニメーションの指定*/   
+  transition:.3s ease-out;
+  .link{
+    text-decoration: none;
+    color: #fff;    };
+}
+
+.new-button{
+  text-align: center;
+}
+.new-link:hover{
+	background:#2ca9e1;
+	border-radius: 20px;	
+	.link{
+	  color: #a2d7dd;
+	}
+}
+/*=== コーチ募集 ====*/
+/*コーチ募集テキスト*/
+.coaching{
+  padding: 50px;
+  margin-bottom: 50px;
+}
+
+/*コーチ募集画像*/
+.coach-recruit{
+  height: 700px;
+  padding: 30px 0;
+  background-size: cover;
+  background-image: image-url("coach.jpg");
+}
+.coach-recruit-content{
+  padding: 30px;
+  color: white;
+}
+/*見出し*/
+.home-coach{
+  font-family: 'Shippori Mincho', serif;
+}
+.coach-recruit p {
+  font-size: 30px;
+  font-family: 'Shippori Mincho', serif;
+}
+
+.coach-title{
+  width: 100%;
+  text-align: center;
+}
+/*コーチ画像内テキストを動かす*/
+.eachTextAnime span{
+  font-size: 120px;
+  font-family: 'Shippori Mincho', serif;
+  color: #dddddd;
+  opacity: 0;} /*文字の透明度,最初の文字の透明度*/
+  /*animationは８つの機能を一括で指定できる*/
+  /* text_anime_on(1文字ずつ出てくる), 1s(1秒),ease-out(開始時は早く変化し、終了時は緩やかに変化), forwords(アニメーション終了後は最後の状態が適用)*/
+.eachTextAnime.appeartext span{ animation:text_anime_on 1s ease-out forwards; }
+@keyframes text_anime_on { /*@keyframesでアニメーション開始から終了までをどうするか指定できる*/
+	0% {opacity: 0;
+	  width: 200px;
+	}
+	100% {opacity: 1;
+	  width: 400px;
+	}/*文字の色が濃くなる*/
+}
+/*コーチ登録ボタン*/
+.home-button{
+  width: 250px;
+  font-size: 30px;
+    /*ボタンの形状*/   
+	display: inline-block;
+  background: #e60033;
+  padding: 10px 20px;
+  border: 5px solid #e60033;
+  outline: none;
+  /*アニメーションの指定*/   
+  transition:.3s ease-out;
+  .link{
+    text-decoration: none;
+    color: #fff;    }
+}
+/*hoverした際の角丸のアニメーション*/
+.home-button:hover{
+	background:#e60033;
+	border-radius: 20px;	
+	.link{
+	  color: #ffb2d8;
+	}
+}
+
+/*=== 共通CSS ====*/
 /*共通に見出しの下にアンダーライン*/
 .top-title {
   width: 700px;
   text-align: center;
   position: relative;
-  margin: 2em;
+  margin: 150px 50px 10px; 
   padding: 1.5rem 2rem;
   border-radius: 10px;
   background: #ffffff;
@@ -381,6 +389,23 @@ ul{
   left: 50px;
   width: 15px;
   height: 15px;
+}
+/* したからテキスト出てくる(共通)*/
+span.smoothText {
+	overflow: hidden;
+	display: block;
+}
+
+/* アニメーションで傾斜がついている文字列を水平に戻す*/
+span.smoothTextTrigger{
+  font-size: 30px;
+	transition: .8s ease-in-out;
+	transform: translate3d(0,100%,0) skewY(12deg);
+	transform-origin: left;
+	display: block;
+}
+span.smoothTextTrigger.smoothTextAppear{
+    transform: translate3d(0,0,0) skewY(0);
 }
 
 /*=====================================
@@ -577,4 +602,6 @@ ul{
 .footer{
   height: 100px;
 }
+
+
 
