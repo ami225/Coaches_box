@@ -5,5 +5,4 @@ class FavoriteCoachesControllerTest < ActionDispatch::IntegrationTest
     get favorite_coaches_index_url
     assert_response :success
   end
-
 end

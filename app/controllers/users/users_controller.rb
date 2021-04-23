@@ -17,7 +17,7 @@ class Users::UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def index
     @users = User.all
   end

@@ -10,8 +10,8 @@ class User < ApplicationRecord
   # userプロフィールバリデーション
   validates :name, presence: true
   validates :name, length: { in: 2..20 }
-  validates :introduction, length: { maximum: 50}
-  
+  validates :introduction, length: { maximum: 50 }
+
   def is_same?(current_user)
     id == current_user.id
   end

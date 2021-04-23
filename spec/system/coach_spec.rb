@@ -2,16 +2,19 @@ require 'rails_helper'
 describe 'コーチのテスト' do
   let(:coach) { create(:coach) }
   let(:other_coach) { create(:coach) }
+
   describe 'コーチ一覧画面のテスト' do
     before do
-    login_as(coach, scope: :coach)
-    visit coaches_coaches_path
+      login_as(coach, scope: :coach)
+      visit coaches_coaches_path
     end
+
     context '表示のテスト' do
       it 'コーチ詳細画面へのリンクがあるか' do
         expect(page).to have_link 'Coach Profile'
       end
     end
+
     context '遷移先の確認' do
       it 'Coach Profileの遷移先はコーチ詳細画面か' do
         click_link 'Coach Profile'
@@ -19,11 +22,13 @@ describe 'コーチのテスト' do
       end
     end
   end
+
   describe 'コーチ詳細画面のテスト' do
     before do
-    login_as(coach, scope: :coach)
-    visit coaches_coach_path(coach)
+      login_as(coach, scope: :coach)
+      visit coaches_coach_path(coach)
     end
+
     context '表示のテスト' do
       it 'コーチ編集画面へのリンクがあるか' do
         expect(page).to have_link '編集する'
@@ -34,11 +39,13 @@ describe 'コーチのテスト' do
       end
     end
   end
+
   describe 'コーチ編集画面のテスト' do
     before do
-    login_as(coach, scope: :coach)
-    visit edit_coaches_coach_path(coach)
+      login_as(coach, scope: :coach)
+      visit edit_coaches_coach_path(coach)
     end
+
     context '表示のテスト' do
       it 'name編集フォームが表示される' do
         expect(page).to have_field 'coach[name]', with: coach.name
@@ -50,6 +57,7 @@ describe 'コーチのテスト' do
         expect(page).to have_button '変更を保存する'
       end
     end
+
     context '更新のテスト' do
       before do
         @coach_old_name = coach.name
@@ -58,6 +66,7 @@ describe 'コーチのテスト' do
         fill_in 'coach[introduction]', with: Faker::Lorem.characters(number: 10)
         click_button '変更を保存する'
       end
+
       it 'nameが正しく更新される' do
         expect(coach.reload.name).not_to eq @coach_old_name
       end
@@ -65,6 +74,7 @@ describe 'コーチのテスト' do
         expect(coach.reload.introduction).not_to eq @coach_old_intrpduction
       end
     end
+
     context 'ボタンのテスト' do
       it 'リダイレクト先が、コーチ詳細画面になっている' do
         click_button '変更を保存する'

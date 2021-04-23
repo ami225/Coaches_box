@@ -55,9 +55,9 @@ main{
   color: white;
 }
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1071;
+  position: sticky;
+  top: 0;
+  z-index: 1071;
 }
 .sidebar_fixed {
   position: sticky;
@@ -70,26 +70,28 @@ ul{
 }
 /*一般側,コーチ側名前表示*/
 .name{
+  padding-left: 15px;
   color: white;
-  font-size: 12px;
+  font-size: 13px;
 }
 /*テキスト*/
 .nav-item{
   /*アニメーションの起点とするためrelativeを指定*/
-    position: relative;
-	overflow: hidden;
-    /*ボタンの形状*/
-	text-decoration: none;
-	display: inline-block;
-    padding: 10px 30px;
-    text-align: center;
-    outline: none;
-    /*アニメーションの指定*/   
-    transition: ease .2s;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  /*ボタンの形状*/
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 30px;
+  text-align: center;
+  outline: none;
+  /*アニメーションの指定*/   
+  transition: ease .2s;
  
   
   .link{
-     position: relative;
+  position: relative;
 	z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
 	color:#ffffff;
 	text-decoration: none;/*link_toのリンクの線を消す*/
@@ -126,31 +128,31 @@ ul{
 =====================================*/
 /*スライドショー画像*/
 .image1 {
-  background-image: url(rugby2.jpg);
+  background-image: image-url("rugby2.jpg");
 }
 .image2 {
-  background-image: url(running.jpg);
+  background-image: image-url("running.jpg");
 }
 .image3 {
-  background-image: url(handicap.jpg);
+  background-image: image-url("handicap.jpg");
 }
 .image4 {
-  background-image: url(tennis.jpg);
+  background-image: image-url("tennis.jpg");
 }
 .image5 {
-  background-image: url(icehockey2.jpg);
+  background-image: image-url("icehockey2.jpg");
 }
 .image6 {
-  background-image: url(tabletennis.jpg);
+  background-image: image-url("tabletennis.jpg");
 }
 .image7 {
-  background-image: url(swimming1.jpg);
+  background-image: image-url("swimming1.jpg");
 }
 .image8 {
-  background-image: url(woman.jpg);
+  background-image: image-url("woman.jpg");
 }
 .image9 {
-  background-image: url(kendoo.jpg);
+  background-image: image-url("kendoo.jpg");
 }
 
 #randam{
@@ -204,8 +206,8 @@ ul{
 }
 /*登録するボタン*/
 .new-link{
-  width: 200px;
-  font-size: 20px;
+  width: 250px;
+  font-size: 30px;
     /*ボタンの形状*/   
 	display: inline-block;
   background:#2ca9e1;
@@ -260,13 +262,13 @@ ul{
   margin-bottom: 50px;
 }
 .coach-title{
-width: 100%;
-text-align: center;
+  width: 100%;
+  text-align: center;
 }
 /*コーチ登録ボタン*/
 .home-button{
-  width: 200px;
-  font-size: 20px;
+  width: 250px;
+  font-size: 30px;
     /*ボタンの形状*/   
 	display:inline-block;
   background: #e60033;
@@ -301,9 +303,9 @@ text-align: center;
 
 /*下からの距離が変化して全体が下→上→下に動く*/
 @keyframes arrowmove{
-      0%{top: 20%;}
-      50%{top: 21%;}
-     100%{top: 20%;}
+    0%{top: 19%;}
+    50%{top: 20%;}
+   100%{top: 19%;}
  }
 
 /*Scrollテキストの描写*/
@@ -324,16 +326,16 @@ text-align: center;
 
 /* 矢印の描写 */
 .scrolldown4:before {
-    content: "";
-    /*描画位置*/
-    position: absolute;
-    bottom: 0;
-    right: -6px;
-    /*矢印の形状*/
-    width: 1px;
-    height: 20px;
-    background: #eee;
-    transform: skewX(-31deg);
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  right: -6px;
+  /*矢印の形状*/
+  width: 1px;
+  height: 20px;
+  background: #eee;
+  transform: skewX(-31deg);
 }
 
 .scrolldown4:after{
@@ -388,17 +390,17 @@ text-align: center;
 
 /*ボタンの形状*/
 .editting-button{
-    border: 1px solid #17a2b8;
-    border-radius: 5px;
-    padding: 0 10px;
-    display: inline-block;
-    .link{
-    color: #17a2b8;
-    text-decoration: none; 
-    outline: none;
-    }
-    /*アニメーションの指定*/
-    transition: all .3s;
+  border: 1px solid #17a2b8;
+  border-radius: 5px;
+  padding: 0 10px;
+  display: inline-block;
+  .link{
+  color: #17a2b8;
+  text-decoration: none; 
+  outline: none;
+  }
+  /*アニメーションの指定*/
+  transition: all .3s;
 }
 
 /*hoverをしたらボックスに影がつく*/

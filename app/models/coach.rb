@@ -28,30 +28,32 @@ class Coach < ApplicationRecord
       tags << coach_tag
     end
   end
-  #お気に入りメソッド
+
+  # お気に入りメソッド
   def favorited_by?(user)
-    #引数で渡されたユーザidがFavoritesテーブル内に存在していればtrue存在していなければfalse
+    # 引数で渡されたユーザidがFavoritesテーブル内に存在していればtrue存在していなければfalse
     favorites.where(user_id: user.id).exists?
   end
-   #検索機能メソッド
-   def self.looks_for(search, words)
-     case search
-     when "perfect_match"
-       Coach.where("name LIKE ?", "#{words}")
-     else
-       Coach.where("name LIKE ?", "%#{words}%")
-     end
-   end
-  
-  #ログインしているコーチかどうか
+
+  # 検索機能メソッド
+  def self.looks_for(search, words)
+    case search
+    when "perfect_match"
+      Coach.where("name LIKE ?", "#{words}")
+    else
+      Coach.where("name LIKE ?", "%#{words}%")
+    end
+  end
+
+  # ログインしているコーチかどうか
   # % if @coach.id == current_coach.id % この文をメソッド化
   def is_same?(current_coach)
-    #idはcoachモデルに書いているので勝手にcoach_idと変換してくれる
+    # idはcoachモデルに書いているので勝手にcoach_idと変換してくれる
     id == current_coach.id
   end
-  
-  #コーチバリデーション
+
+  # コーチバリデーション
   validates :name, uniqueness: true
   validates :name, length: { in: 2..20 }
-  validates :introduction, length: { maximum: 50}
+  validates :introduction, length: { maximum: 50 }
 end

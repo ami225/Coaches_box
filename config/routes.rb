@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # Coach側ルーティング
   namespace :coaches do
     resources :coaches, only: [:show, :edit, :index, :update] do
@@ -16,8 +15,8 @@ Rails.application.routes.draw do
   # User側ルーティング
   scope module: :users do
     root to: 'homes#top'
-    get   'users/my_page' => 'users#show'
-    resources :users, only: [:edit, :update] 
+    get 'users/my_page' => 'users#show'
+    resources :users, only: [:edit, :update]
     resources :coaches, only: [:show, :index]
     resources :posts, only: [:index, :show]
   end
@@ -32,5 +31,5 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   resources :rooms,    only: [:create, :show, :index]
   get 'finder' => "finders#finder"
-  resources :favorite_coaches, only: [:index] 
+  resources :favorite_coaches, only: [:index]
 end

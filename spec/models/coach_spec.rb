@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Coachモデルのテスト', type: :model do
   let(:coach) { create(:coach) }
+
   describe 'バリデーションのテスト' do
-    #subject{ coach.valid? }でis_expectedが使えるようになる
+    # subject{ coach.valid? }でis_expectedが使えるようになる
     subject { coach.valid? }
+
     let!(:other_coach) { create(:coach) }
-    
 
     context 'nameカラム' do
       it '空欄でないこと' do
@@ -30,7 +31,6 @@ RSpec.describe 'Coachモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
-
     context 'introductionカラム' do
       it '50文字以下であること: 50文字は〇' do
         coach.introduction = Faker::Lorem.characters(number: 50)
@@ -50,58 +50,61 @@ RSpec.describe 'Coachモデルのテスト', type: :model do
       end
     end
   end
-  #いいね機能のテスト
+  # いいね機能のテスト
   describe "def favorited_by?(user)" do
     let(:user) { create(:user) }
     it 'favoriteにuser_idが入っている時にtrueで返す' do
-      #factory bot(favorite)にアソシエーションを書かないとcreteは使えないので記述
-      #ここでfavoriteを作成してすでにletで定義しているuserとcoachここで明示的に記入して重複しないようにする
+      # factory bot(favorite)にアソシエーションを書かないとcreteは使えないので記述
+      # ここでfavoriteを作成してすでにletで定義しているuserとcoachここで明示的に記入して重複しないようにする
       create(:favorite, user: user, coach: coach)
       expect(coach.favorited_by?(user)).to be true
     end
     it 'favoriteにuser_idが入っていない時にfalseで返す' do
       create(:favorite, user: user, coach: coach)
-      expect(coach.favorited_by?(user)).to_not be false
+      expect(coach.favorited_by?(user)).not_to be false
     end
   end
-  
-   #検索メソッドのテスト
+
+  # 検索メソッドのテスト
   describe 'def self.looks_for(searches, words)' do
     it "検索文字列がperfect_matchで返す" do
-      #コーチを作成して、nameを"test_item"さん
+      # コーチを作成して、nameを"test_item"さん
       create(:coach, name: "test_item")
-      #inputは完全一致なのでフルネームを代入
+      # inputは完全一致なのでフルネームを代入
       input = "test_item"
-      #outputはinputを同じでなければ返さないので、output = input
+      # outputはinputを同じでなければ返さないので、output = input
       output = input
-      #resにメソッドでinputの人を探して
+      # resにメソッドでinputの人を探して
       res = Coach.looks_for("perfect_match", input)
-      #resの人はoutputと完全一致しているか検証
+      # resの人はoutputと完全一致しているか検証
       expect(res.first.name).to eq output
     end
     it "検索文字列がpartial_matchで返す" do
-      #コーチを作成して、nameを"other_test_item"さん
+      # コーチを作成して、nameを"other_test_item"さん
       create(:coach, name: "other_test_item")
-      #部分一致なので"other_test_item"の"test_item"の部分だけを代入
+      # 部分一致なので"other_test_item"の"test_item"の部分だけを代入
       input = "test_item"
-      #全体の名前を代入
+      # 全体の名前を代入
       output = "other_test_item"
-      #メソッドと返すものを代入
+      # メソッドと返すものを代入
       res = Coach.looks_for("partial_match", input)
-      #inputの部分一致でoutputの人を返せているか
+      # inputの部分一致でoutputの人を返せているか
       expect(res.first.name).to eq output
     end
   end
-  
+
   describe "#is_same?" do
     let(:coach) { create(:coach) }
+
     context 'ログインしているコーチをtrueで返す' do
       it 'ログインしているコーチのみtrueにしているか' do
         expect(coach.is_same?(coach)).to be true
       end
     end
+
     context 'ログインしていないコーチをfalseで返す' do
       let(:other_coach) { create(:coach) }
+
       it 'when fail' do
         expect(coach.is_same?(other_coach)).to be false
       end
