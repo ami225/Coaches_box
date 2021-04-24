@@ -31,6 +31,7 @@ RSpec.describe 'Coachモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
+
     context 'introductionカラム' do
       it '50文字以下であること: 50文字は〇' do
         coach.introduction = Faker::Lorem.characters(number: 50)
@@ -51,8 +52,10 @@ RSpec.describe 'Coachモデルのテスト', type: :model do
     end
   end
   # いいね機能のテスト
+
   describe "def favorited_by?(user)" do
     let(:user) { create(:user) }
+
     it 'favoriteにuser_idが入っている時にtrueで返す' do
       # factory bot(favorite)にアソシエーションを書かないとcreteは使えないので記述
       # ここでfavoriteを作成してすでにletで定義しているuserとcoachここで明示的に記入して重複しないようにする
