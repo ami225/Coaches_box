@@ -25,6 +25,10 @@ Coacher's Box(コーチャーズボックス）
 2. スポーツで上手くなりたい時
 
 # 設計書
+## ER図、UIFLOW
+  https://drive.google.com/file/d/1tEvUHUM9Q3RbYT81a87t3nv0IKOP29Be/view?usp=sharing
+## ワイヤーフレーム
+https://xd.adobe.com/view/d6915a77-fc16-4beb-bb5f-676f004a7fca-83c2/
 
 ## 機能一覧
 
