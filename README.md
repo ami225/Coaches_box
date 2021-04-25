@@ -29,7 +29,10 @@ Coacher's Box(コーチャーズボックス）
   https://drive.google.com/file/d/1tEvUHUM9Q3RbYT81a87t3nv0IKOP29Be/view?usp=sharing
 ## ワイヤーフレーム
 https://xd.adobe.com/view/d6915a77-fc16-4beb-bb5f-676f004a7fca-83c2/
-
+## アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/1Gp6DOVtjzIUcE37EyyizYufuwO0PKHXil4cgKU7m68o/edit?usp=sharing
+## テーブル定義書
+https://docs.google.com/spreadsheets/d/1TXc90lW-__R1Knv3PwSi9Or9Bj1BX359Yqjo98yEagw/edit?usp=sharing
 ## 機能一覧
 
 https://docs.google.com/spreadsheets/d/1lHKW2PJlggR11rbeiivD8CJez-Ii5OhgRRPxtJtW1QE/edit?usp=sharing
