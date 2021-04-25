@@ -55,6 +55,10 @@ main{
   color: white;
 }
 .navbar {
+  display: none;
+  top: 15px;
+  right: 15px;
+  height: 32px;
   position: sticky;
   top: 0;
   z-index: 1071;
@@ -63,6 +67,7 @@ main{
   position: sticky;
   top: 60px;
 }
+
 
 ul{
   list-style: none;
@@ -77,6 +82,7 @@ ul{
 /*テキスト*/
 .nav-item{
   /*アニメーションの起点とするためrelativeを指定*/
+  
   font-size: 20px;
   position: relative;
   overflow: hidden;
@@ -95,6 +101,7 @@ ul{
 	text-decoration: none;/*link_toのリンクの線を消す*/
   }
 }
+
   
   .nav-item:hover .link{
 	color:#000000;
@@ -121,6 +128,9 @@ ul{
 	transform-origin:left top;
 	transform:scale(1, 1);
 }
+
+
+
 /*=====================================
  top CSS
 =====================================*/
@@ -236,6 +246,7 @@ ul{
 	height: 50px;
 	background:#eee;
 }
+
 
 /*=== ABOUT ====*/
 .about {
@@ -601,27 +612,3 @@ span.smoothTextTrigger.smoothTextAppear{
   height: 100px;
 }
 
-
-
-/* すべての画面サイズで適用される設定 */
-.social i {
-  color:black;
-}
-/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
-@media screen and (max-width:1024px) {
-  .social i {
-    color: green;
-  }
-}
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  .social i {
-    color: red;
-  }
-}
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
-  .social i {
-    color: blue;
-  }
-}
