@@ -50,7 +50,7 @@ main{
 /*=====================================
  sidebar CSS
 =====================================*/
-
+/*=== ロゴ ====*/
 .logo{
   color: white;
 }
@@ -79,6 +79,8 @@ ul{
   color: white;
   font-size: 13px;
 }
+
+/*=== menu部分 ====*/
 /*テキスト*/
 .nav-item{
   /*アニメーションの起点とするためrelativeを指定*/
@@ -101,8 +103,6 @@ ul{
 	text-decoration: none;/*link_toのリンクの線を消す*/
   }
 }
-
-  
   .nav-item:hover .link{
 	color:#000000;
 }
@@ -128,8 +128,6 @@ ul{
 	transform-origin:left top;
 	transform:scale(1, 1);
 }
-
-
 
 /*=====================================
  top CSS
